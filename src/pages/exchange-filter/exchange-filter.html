@@ -1,0 +1,106 @@
+<!--
+  Generated template for the ExchangeFilterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title>Filter</ion-title>
+      <ion-buttons right="" style="margin-right: 8px" (click)="close()">
+          <button ion-button clear icon-left="" color="extralight">
+            <ion-icon name="close" style="font-size: 30px;
+            font-weight: bold;"></ion-icon>
+          </button>
+     </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+
+<!-- <ion-content padding>
+    <ion-list radio-group [(ngModel)]="cat_id">
+        <ion-list-header>
+           Filter By Category
+          </ion-list-header>
+          <ion-item *ngFor="let item of category_list">
+            <ion-label>{{item.name}}</ion-label>
+            <ion-radio slot="start" value={{item.id}}></ion-radio>
+          </ion-item>
+    </ion-list>
+</ion-content> -->
+
+<ion-content>
+    <ion-row no-padding="">
+      <ion-col col-3 no-padding="">
+        <ion-segment [(ngModel)]="filtermodel" mode="wp" (ionChange)="onSegmentChange()">
+            <ion-segment-button value="price" mode="wp">
+                Price
+              </ion-segment-button>
+                  <ion-segment-button value="category" mode="wp">
+                      Category
+              </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    
+      <ion-col col-9 [ngSwitch]="filtermodel" no-padding="">
+          <ion-list *ngSwitchCase="'price'" no-border="">
+              <ion-list-header mode="md" padding-horizontal="">
+                <div class="value">
+                  <small>Min</small>
+                  <input type="tel" ngModel="${{price.lower}}">
+                </div>
+                <div class="value">
+                  <small>Max.</small>
+                  <input type="tel" ngModel="${{price.upper}}">
+                </div>
+              </ion-list-header>
+              <ion-item no-lines="" no-padding="">
+                <ion-range [(ngModel)]="price" dualKnobs="true" [min]="min" [max]="max" mode="ios"></ion-range>
+              </ion-item>
+            </ion-list>
+
+            <ion-list *ngSwitchCase="'category'" no-border="">
+                <!-- <ion-list radio-group [(ngModel)]="cat_id">
+                    <ion-list-header>
+                       Filter By Category
+                      </ion-list-header>
+                      <ion-item *ngFor="let item of category_list">
+                        <ion-label>{{item.name}}</ion-label>
+                        <ion-radio slot="start" value={{item.id}}></ion-radio>
+                        <ion-list radio-group [(ngModel)]="cat">
+                              <ion-item >
+                                <ion-label>AAAAA</ion-label>
+                                <ion-radio slot="start" value='AAA'></ion-radio>
+                              </ion-item>
+                        </ion-list>
+                      </ion-item>
+                </ion-list> -->
+                <div *ngFor="let item of category_list">
+                  <p style="font-size: 15px;font-weight: 400;" (click)="selectedVal(item.id)">{{item.name}}<span style="float:right;color: skyblue;
+                    padding-right: 15px;"><ion-icon name="md-checkmark" style="visibility:hidden"  id="{{item.id}}"></ion-icon></span></p>
+                  <div *ngIf="item.subCategories.length>0" style="padding-left: 25px;font-weight: 100;">
+                    <div *ngFor="let item1 of item.subCategories">
+                      <p (click)="selectedVal(item1.id)">{{item1.name}}<span style="float:right;color: skyblue;
+                        padding-right: 15px;"><ion-icon name="md-checkmark" style="visibility:hidden;"  id="{{item1.id}}"></ion-icon></span></p>
+
+                    </div>
+
+                  </div>
+                </div>
+            </ion-list>
+    
+        <!-- <div *ngFor="let item of Filters">
+          <ion-list *ngSwitchCase="item.name">
+            <ion-item no-lines="" *ngFor="let val of item.values_array;let i=index;">
+              <ion-label>{{val}}</ion-label>
+              <ion-checkbox (ionChange)="selectedCheckbox(item,val)" [checked]="getChecked(val)"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+        </div> -->
+      </ion-col> 
+    
+    </ion-row>
+    </ion-content>
+<ion-footer>
+  <button ion-button block (click)="apply()">Apply</button>
+</ion-footer>

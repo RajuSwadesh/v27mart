@@ -1,0 +1,44 @@
+<!--
+  Generated template for the AddNewAddressPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header mode="md" no-border="">
+  <ion-navbar mode="md" color="primary">
+    <ion-title mode="ios" text-capitalize="">Add a new address</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="product_details">
+    <div>
+      <button ion-button block icon-start style="background-color: #f6f7f7;
+      color: #0ec0ed;" (click)="getLocation()">
+        <ion-icon name="ios-locate-outline"></ion-icon>
+        Use my current location
+      </button>
+      <p style="text-align: center;color: grey;margin-top: 0px;">Tap to auto fill address</p>
+    </div>
+    <div class="form_area">
+      <input type="text" placeholder="First Name" [(ngModel)]="fname" class="animated fadeInUp">
+      <input type="text" placeholder="Last Name" [(ngModel)]="lname" class="animated fadeInUp">
+      <input type="tel" placeholder="Phone Number" [(ngModel)]="phno" class="animated fadeInUp">
+      <input type="text" id="myloc" placeholder="Address" [(ngModel)]="address" class="animated fadeInUp">
+      <input type="text" placeholder="City" [(ngModel)]="city" class="animated fadeInUp">
+      <input type="number" placeholder="Postal Pin Number" [(ngModel)]="pin" class="animated fadeInUp">
+      <ion-item no-lines="" mode="md">
+        <ion-label mode="md">Type</ion-label>
+        <ion-select [(ngModel)]="type" mode="md">
+          <ion-option mode="md" value="default">Default</ion-option>
+          <ion-option mode="md" value="normal">Normal</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <button ion-button block (click)="save()">Save</button>
+
+    </div>
+
+  </div>
+
+</ion-content>

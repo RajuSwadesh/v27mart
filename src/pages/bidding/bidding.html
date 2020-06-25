@@ -1,0 +1,450 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Bidding</ion-title>
+    <ion-buttons right="" style="margin-right: 8px">
+        <button ion-button clear icon-left="" color="extralight" (tap)="goToMyBidding()">
+          My Bidding
+        </button>
+        </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <!-- <ion-segment [(ngModel)]="bid_view">
+    <ion-segment-button value="current">
+      Current
+    </ion-segment-button>
+    <ion-segment-button value="outbit">
+      Outbid
+    </ion-segment-button>
+    <ion-segment-button value="won">
+      Won
+    </ion-segment-button>
+  </ion-segment> -->
+
+
+  <!-- <div [ngSwitch]="bid_view" class="segment-display">
+    <ion-list *ngSwitchCase="'current'">
+
+      <div class="bid-wrapper">
+        <ion-row class="no-wrap" (tap)="biddingdetails()">
+          <ion-col col-4 class="no-wrap">
+            <img src="assets/imgs/bidding/product/1.jpg" alt="">
+          </ion-col>
+          <ion-col col-8>
+            <h4>Radwagon Electric cargo bike</h4>
+            <span class="status active">Active</span>
+            <ul>
+              <li>
+                <p>max bid</p>
+                <h6 style="color: #0ec0ed;">$18.99</h6>
+              </li>
+              <li>
+                <p>ends</p>
+                <h6>Thursday</h6>
+              </li>
+              <li>
+                <p>bids</p>
+                <h6>0</h6>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+        <ion-row class="no-wrap">
+          <ion-col col-4 class="no-wrap">
+            <img src="assets/imgs/bidding/product/2.jpg" alt="">
+          </ion-col>
+          <ion-col col-8>
+            <h4>Sturdy bike duel suspensive</h4>
+            <span class="status won">Won</span>
+            <ul>
+              <li>
+                <p>max bid</p>
+                <h6 style="color: #0ec0ed;">$199.99</h6>
+              </li>
+              <li>
+                <p>ended</p>
+                <h6>friday</h6>
+              </li>
+              <li>
+                <p>bids</p>
+                <h6>0</h6>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+        <ion-row class="no-wrap">
+          <ion-col col-4 class="no-wrap">
+            <img src="assets/imgs/bidding/product/3.jpg" alt="">
+          </ion-col>
+          <ion-col col-8>
+            <h4>KTM 1920 Super bike</h4>
+            <span class="status lost">lost</span>
+            <ul>
+              <li>
+                <p>max bid</p>
+                <h6 style="color: #0ec0ed;">$204.04</h6>
+              </li>
+              <li>
+                <p>ends</p>
+                <h6>Yesterday</h6>
+              </li>
+              <li>
+                <p>bids</p>
+                <h6>0</h6>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+        <ion-row class="no-wrap">
+          <ion-col col-4 class="no-wrap">
+            <img src="assets/imgs/bidding/product/4.jpg" alt="">
+          </ion-col>
+          <ion-col col-8>
+            <h4>Handheld garment steamer</h4>
+            <span class="status won">Won</span>
+            <ul>
+              <li>
+                <p>max bid</p>
+                <h6 style="color: #0ec0ed;">$199.99</h6>
+              </li>
+              <li>
+                <p>ended</p>
+                <h6>friday</h6>
+              </li>
+              <li>
+                <p>bids</p>
+                <h6>0</h6>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+        <ion-row class="no-wrap">
+          <ion-col col-4 class="no-wrap">
+            <img src="assets/imgs/bidding/product/5.jpg" alt="">
+          </ion-col>
+          <ion-col col-8>
+            <h4>Spiceberry Stone granite bowl</h4>
+            <span class="status inactive">Inactive</span>
+            <ul>
+              <li>
+                <p>max bid</p>
+                <h6 style="color: #0ec0ed;">$18.99</h6>
+              </li>
+              <li>
+                <p>ends</p>
+                <h6>Thursday</h6>
+              </li>
+              <li>
+                <p>bids</p>
+                <h6>0</h6>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+        <ion-row class="no-wrap">
+          <ion-col col-4 class="no-wrap">
+            <img src="assets/imgs/bidding/product/6.jpg" alt="">
+          </ion-col>
+          <ion-col col-8>
+            <h4>Sankheda Wooden dinning table</h4>
+            <span class="status active">Active</span>
+            <ul>
+              <li>
+                <p>max bid</p>
+                <h6 style="color: #0ec0ed;">$199.99</h6>
+              </li>
+              <li>
+                <p>ended</p>
+                <h6>friday</h6>
+              </li>
+              <li>
+                <p>bids</p>
+                <h6>0</h6>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+        <ion-row class="no-wrap">
+          <ion-col col-4 class="no-wrap">
+            <img src="assets/imgs/bidding/product/7.jpg" alt="">
+          </ion-col>
+          <ion-col col-8>
+            <h4>King living furniture collection</h4>
+            <span class="status active">Active</span>
+            <ul>
+              <li>
+                <p>max bid</p>
+                <h6 style="color: #0ec0ed;">$132.89</h6>
+              </li>
+              <li>
+                <p>ends</p>
+                <h6>Thursday</h6>
+              </li>
+              <li>
+                <p>bids</p>
+                <h6>0</h6>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+        <ion-row class="no-wrap">
+          <ion-col col-4 class="no-wrap">
+            <img src="assets/imgs/bidding/product/8.jpg" alt="">
+          </ion-col>
+          <ion-col col-8>
+            <h4>Clearance furniture</h4>
+            <span class="status lost">Lost</span>
+            <ul>
+              <li>
+                <p>max bid</p>
+                <h6 style="color: #0ec0ed;">$199.99</h6>
+              </li>
+              <li>
+                <p>ended</p>
+                <h6>friday</h6>
+              </li>
+              <li>
+                <p>bids</p>
+                <h6>0</h6>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+      </div>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'outbit'">
+
+      <div class="bid-wrapper">
+        <ion-row class="no-wrap">
+          <ion-col col-4 class="no-wrap">
+            <img src="assets/imgs/bidding/product/8.jpg" alt="">
+          </ion-col>
+          <ion-col col-8>
+            <h4>Clearance furniture</h4>
+            <span class="status inactive">Inactive</span>
+            <ul>
+              <li>
+                <p>max bid</p>
+                <h6 style="color: #0ec0ed;">$199.99</h6>
+              </li>
+              <li>
+                <p>ended</p>
+                <h6>friday</h6>
+              </li>
+              <li>
+                <p>bids</p>
+                <h6>0</h6>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+        <ion-row class="no-wrap">
+          <ion-col col-4 class="no-wrap">
+            <img src="assets/imgs/bidding/product/1.jpg" alt="">
+          </ion-col>
+          <ion-col col-8>
+            <h4>Radwagon Electric cargo bike</h4>
+            <span class="status active">Active</span>
+            <ul>
+              <li>
+                <p>max bid</p>
+                <h6 style="color: #0ec0ed;">$18.99</h6>
+              </li>
+              <li>
+                <p>ends</p>
+                <h6>Thursday</h6>
+              </li>
+              <li>
+                <p>bids</p>
+                <h6>0</h6>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+        <ion-row class="no-wrap">
+          <ion-col col-4 class="no-wrap">
+            <img src="assets/imgs/bidding/product/6.jpg" alt="">
+          </ion-col>
+          <ion-col col-8>
+            <h4>Sankheda Wooden dinning table</h4>
+            <span class="status active">Active</span>
+            <ul>
+              <li>
+                <p>max bid</p>
+                <h6 style="color: #0ec0ed;">$199.99</h6>
+              </li>
+              <li>
+                <p>ended</p>
+                <h6>friday</h6>
+              </li>
+              <li>
+                <p>bids</p>
+                <h6>0</h6>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+        <ion-row class="no-wrap">
+          <ion-col col-4 class="no-wrap">
+            <img src="assets/imgs/bidding/product/5.jpg" alt="">
+          </ion-col>
+          <ion-col col-8>
+            <h4>Spiceberry Stone granite bowl</h4>
+            <span class="status inactive">Inactive</span>
+            <ul>
+              <li>
+                <p>max bid</p>
+                <h6 style="color: #0ec0ed;">$18.99</h6>
+              </li>
+              <li>
+                <p>ends</p>
+                <h6>Thursday</h6>
+              </li>
+              <li>
+                <p>bids</p>
+                <h6>0</h6>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+        <ion-row class="no-wrap">
+          <ion-col col-4 class="no-wrap">
+            <img src="assets/imgs/bidding/product/7.jpg" alt="">
+          </ion-col>
+          <ion-col col-8>
+            <h4>King living furniture collection</h4>
+            <span class="status active">Active</span>
+            <ul>
+              <li>
+                <p>max bid</p>
+                <h6 style="color: #0ec0ed;">$132.89</h6>
+              </li>
+              <li>
+                <p>ends</p>
+                <h6>Thursday</h6>
+              </li>
+              <li>
+                <p>bids</p>
+                <h6>0</h6>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+      </div>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'won'">
+      <div class="bid-wrapper">
+        <ion-row class="no-wrap">
+          <ion-col col-4 class="no-wrap">
+            <img src="assets/imgs/bidding/product/2.jpg" alt="">
+          </ion-col>
+          <ion-col col-8>
+            <h4>Sturdy bike duel suspensive</h4>
+            <span class="status won">Won</span>
+            <ul>
+              <li>
+                <p>max bid</p>
+                <h6 style="color: #0ec0ed;">$199.99</h6>
+              </li>
+              <li>
+                <p>ended</p>
+                <h6>friday</h6>
+              </li>
+              <li>
+                <p>bids</p>
+                <h6>0</h6>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+        <ion-row class="no-wrap">
+          <ion-col col-4 class="no-wrap">
+            <img src="assets/imgs/bidding/product/4.jpg" alt="">
+          </ion-col>
+          <ion-col col-8>
+            <h4>Handheld garment steamer</h4>
+            <span class="status won">Won</span>
+            <ul>
+              <li>
+                <p>max bid</p>
+                <h6 style="color: #0ec0ed;">$199.99</h6>
+              </li>
+              <li>
+                <p>ended</p>
+                <h6>friday</h6>
+              </li>
+              <li>
+                <p>bids</p>
+                <h6>0</h6>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+        <ion-row class="no-wrap">
+          <ion-col col-4 class="no-wrap">
+            <img src="assets/imgs/bidding/product/8.jpg" alt="">
+          </ion-col>
+          <ion-col col-8>
+            <h4>Clearance furniture</h4>
+            <span class="status won">Won</span>
+            <ul>
+              <li>
+                <p>max bid</p>
+                <h6 style="color: #0ec0ed;">$199.99</h6>
+              </li>
+              <li>
+                <p>ended</p>
+                <h6>friday</h6>
+              </li>
+              <li>
+                <p>bids</p>
+                <h6>0</h6>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-list> 
+
+  </div>-->
+
+  <ion-list *ngFor="let item of product_list">
+
+    <div class="bid-wrapper">
+      <ion-row class="no-wrap" (tap)="biddingdetails(item)">
+        <ion-col col-4 class="no-wrap">
+          <img [src]="item.product_image.original" alt="">
+        </ion-col>
+        <ion-col col-8>
+          <h4>{{getName(item.product_title)}}</h4>
+          <span class="status active">{{item.status}}</span>
+          <ul>
+            <li>
+              <p>Bid Start Price</p>
+              <h6 style="color: #0ec0ed;">${{item.bid_start_price}}</h6>
+            </li>
+            <li *ngIf="item.current_bid_price">
+              <p>Current Price</p>
+              <h6>{{item.current_bid_price}}</h6>
+            </li>
+            <li>
+              <p>bids</p>
+              <h6>{{item.bid_count}}</h6>
+            </li>
+          </ul>
+        </ion-col>
+      </ion-row>
+      </div>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="moreProducts($event)"> 
+      <ion-infinite-scroll-content loadingSpinner="bubbles"
+      loadingText="Loading more products..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

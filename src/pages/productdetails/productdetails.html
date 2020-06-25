@@ -1,0 +1,202 @@
+<ion-header mode="md">
+
+  <ion-navbar mode="md" color="primary">
+
+    <ion-title mode="ios" text-capitalize="" style="">{{appTitle}}</ion-title>
+
+    <!-- <ion-buttons right="" (tap)="bookmark()" style="margin-right: 8px">
+      <button ion-button clear icon-only="">
+        <ion-icon [name]="visible ? 'ios-heart' :'ios-heart-outline'">
+        </ion-icon>
+      </button>
+    </ion-buttons> -->
+
+    <ion-buttons right="" (tap)="cart()" style="margin-right: 8px">
+      <button ion-button clear icon-only="">
+        <ion-icon name="ios-cart-outline"></ion-icon>
+        <ion-badge item-end color="danger">{{total_cart_item}}</ion-badge>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content *ngIf="product_detail">
+  <div class="product_imgs animated fadeInUp" *ngIf="product_detail">
+
+    <p class="current_index">
+      {{slidenumber}} / {{images.length}}
+    </p>
+
+    <ion-slides (ionSlideDidChange)="slideChanged()">
+      <ion-slide pager *ngFor="let img of images;">
+        <img src="{{img}}" style="padding-top:16%;" #myImage (click)="viewImage(myImage)"> 
+      </ion-slide>
+
+    </ion-slides>
+
+  </div>
+
+  <div class="product_details animated fadeInUp"  *ngIf="product_detail">
+    <h4>{{product_detail.product_title}}</h4>
+    <p *ngIf="product_detail.stock>0 && product_detail.stock<5" style="color: red;">Only a few lefts</p>
+
+    <h3>Rs.{{product_detail.sale_price}} <span class="reg_price" *ngIf="product_detail.regular_price>product_detail.sale_price">{{product_detail.regular_price}}</span><span class="discount" *ngIf="product_detail.regular_price>product_detail.sale_price">{{getDiscount(product_detail)}}% off</span>
+
+    </h3>
+    <small>Inclusive all taxes</small>
+
+    <button ion-button="" mode="ios" text-capitalize="" clear small class="more_btn" color="secondary">
+      More from this seller >
+    </button>
+  </div>
+
+  <div class="product_details animated fadeInUp" *ngFor="let item of variations; let i=index">
+    <h4>Select {{item}}</h4>
+    <ion-segment [(ngModel)]="SelectedVariations[i]" mode="wp">
+      <ion-segment-button value="{{Items.value}}|{{Items.variation_id}}" *ngFor="let Items of product_detail.variations[item]">
+        {{Items.value}}
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div class="product_details animated fadeInUp" style="padding: 8px 0">
+    <ion-row *ngIf="product_detail.is_exchange_available=='No'">
+      <ion-col style="border-right: 1px dashed #e8e8e8;" (click)="share()">
+        <button ion-button="" clear full no-margin="" color="dark" icon-start>
+          <ion-icon name="md-share"></ion-icon>
+          Share
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button="" clear full no-margin="" color="dark"  (click)="addToWishlist()" icon-start>
+            <ion-icon name="ios-bookmark"></ion-icon>
+          Wishlist
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="product_detail.is_exchange_available=='Yes'">
+      <ion-col style="border-right: 1px dashed #e8e8e8;" (click)="share()">
+        <button ion-button="" clear full no-margin="" color="dark" icon-start>
+          <ion-icon name="md-share"></ion-icon>
+          Share
+        </button>
+      </ion-col>
+      <ion-col style="border-right: 1px dashed #e8e8e8;">
+        <button ion-button="" clear full no-margin="" color="dark"  (click)="addToWishlist()" icon-start>
+            <ion-icon name="ios-bookmark"></ion-icon>
+          Wishlist
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button="" clear full no-margin="" color="dark"  (click)="exchange()" icon-start>
+            <ion-icon name="md-repeat"></ion-icon>
+          Exchange
+        </button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="product_details animated fadeInUp">
+    <h4>Product Details</h4>
+    <p>{{product_detail.short_desc}}</p>
+    <p>{{product_detail.description}}</p>
+    <table>
+      <tbody>
+
+      <tr *ngFor="let Info of product_detail.attributes">
+        <td>{{Info.name}}</td>
+        <td>{{Info.value}}</td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="product_details payment_area">
+    <h4>Payment method</h4>
+
+    <ion-list no-margin="">
+
+      <ion-item no-padding="" no-lines="">
+        <ion-avatar item-start>
+          <img src="assets/imgs/cashondelivery.jpg">
+        </ion-avatar>
+        <p>pay on delivery</p>
+      </ion-item>
+
+    </ion-list>
+
+  </div>
+
+  <div class="product_details">
+    <h4>Seller profile</h4>
+    <ion-card>
+      <ion-item no-padding="">
+        <ion-avatar item-start *ngIf="product_detail.sellerDetails.profile_photo">
+          <img src="{{product_detail.sellerDetails.profile_photo.url}}">
+        </ion-avatar>
+        <h2>{{product_detail.sellerDetails.name}}</h2>
+        <small>{{product_detail.SellerProfile.business_name+', '+product_detail.SellerProfile.city}}</small>
+      </ion-item>
+
+    </ion-card>
+  </div>
+
+  <!-- <div [ngClass]="paddingClass"> -->
+  <div class="product_details animated fadeInUp">
+    <h4>Became Seller
+      <button ion-button="" small clear mode="ios" text-capitalize="" no-margin="" (click)="becameSeller()">
+        Apply
+      </button>
+    </h4>
+    <div style="padding-bottom:50px;">
+    <p>
+      Want to sell your own product like this one? No problem just click on the apply button.
+    </p>
+  </div>
+  </div>
+
+
+  <div class="product_details" style="padding-bottom: 0" *ngIf="relatedProducts.length > 0">
+    <h4>Similar Products</h4>
+    <ion-slides slidesPerView="1.8" spaceBetween="6">
+      <ion-slide *ngFor="let item of relatedProducts" (tap)="deatils(item.url)">
+        <div class="button_wrapper">
+          <img [src]="item.product_image.small">
+          <h4>{{item.product_title}}</h4>
+          <div class="price_area">
+            <h3>Rs.{{item.sale_price}}</h3>
+            <h6 *ngIf="item.sale_price != item.regular_price">Rs.{{item.regular_price}}</h6>
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>
+
+
+<ion-footer class="animated fadeInUp" style="background-color: white" no-border="" *ngIf="product_detail">
+  <ion-row *ngIf="product_detail.stock>0">
+    <ion-col col-12>
+      <button ion-button="" full mode="ios" no-margin="" (tap)="addToCart()" style="border-radius: 6px">
+        Add to Cart
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
+
+<ion-footer class="animated fadeInUp" style="background-color: white" no-border="" *ngIf="product_detail">
+  <ion-row *ngIf="product_detail.stock==0">
+    <ion-col col-12>
+      <button ion-button="" outline block mode="ios" no-margin="" (tap)="cart()" style="border-radius: 6px;color: red;
+      border-color: red;">
+        Out Of Stock
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
+

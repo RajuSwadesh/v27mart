@@ -1,0 +1,37 @@
+<ion-header mode="md">
+
+  <ion-navbar mode="md" color="primary">
+
+    <ion-title mode="ios" text-capitalize="">Color</ion-title>
+    <ion-buttons right="">
+      <ion-buttons>
+        <button ion-button (tap)="dismiss()" color="extralight">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list no-lines="">
+    <ion-item>
+      <div class="color" item-start style="background-color: red"></div>
+      Red
+    </ion-item>
+    <ion-item>
+      <div class="color" item-start style="background-color: blue"></div>
+      Blue
+    </ion-item>
+    <ion-item>
+      <div class="color" item-start style="background-color: green"></div>
+      Green
+    </ion-item>
+    <ion-item>
+      <div class="color" item-start style="background-color: yellowgreen"></div>
+      Yellow Green
+    </ion-item>
+  </ion-list>
+</ion-content>

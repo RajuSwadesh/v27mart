@@ -1,0 +1,25 @@
+page-editprofile {
+  .profile_area {
+    display: flex;
+    flex-direction: column;
+    background-color: map_get($colors, primary);
+    align-items: center;
+    color: #ffff;
+    padding: 8px 0 32px 0;
+    position: relative;
+    img{
+      border-radius: 100%;
+    }
+    .button{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  input, textarea{
+    width: 100%;
+    border: 0;
+    background-color: #ffffff;
+    resize: none;
+  }
+}

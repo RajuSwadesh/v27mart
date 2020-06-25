@@ -1,0 +1,79 @@
+<ion-header mode="md">
+
+  <ion-navbar mode="md" color="primary">
+
+    <ion-title mode="ios" text-capitalize="">Ship to</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="product_details">
+    <h4>Suggested Address </h4>
+
+    <div class="address_wrapper">
+      <ion-card class="animated fadeInRight" *ngFor="let address of AllAddress" (click)="selectAddress(address)">
+        <ion-card-content no-padding="">
+          <p style="font-weight: 500;">{{address.firstname}} {{address.lastname}}</p>
+          <p>{{address.mobile}}</p>
+          <p>{{address.address1}}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+  <div class="product_details">
+      <h4>Cart Information </h4>
+      <ion-list>
+        <ion-item> Item Cost : <span item-end="">Rs.{{ItemCost}}</span> </ion-item>
+        <ion-item> Shipping Cost : <span item-end="">Rs.{{ShippingCost}}</span></ion-item>
+        <ion-item> Total Payable : <span item-end="">Rs.{{TotalAmount}}</span></ion-item>
+      </ion-list>
+    </div>
+
+  <div class="product_details">
+    <h4>Shipping Method </h4>
+    <div class="form_area">
+      <!-- <ion-item no-lines="" mode="md" class="animated fadeInUp">
+        <ion-label mode="md">Delivery Location</ion-label>
+        <ion-select [(ngModel)]="shipping" mode="md" (ionChange)="shippingChange()">
+          <ion-option mode="md" value="1">Inside Kathmandu Ringroad</ion-option>
+          <ion-option mode="md" value="2">Inside Kathmandu Valley</ion-option>
+          <ion-option mode="md" value="3">Outside Kathmandu Valley</ion-option>
+        </ion-select>
+      </ion-item> -->
+
+      <input type="text" placeholder="First Name" [(ngModel)]="fname" class="animated fadeInUp">
+
+      <input type="text" placeholder="Last Name" [(ngModel)]="lname" class="animated fadeInUp">
+
+      <input type="email" placeholder="Email Address" [(ngModel)]="email" class="animated fadeInUp">
+      <input type="tel" placeholder="Phone Number" [(ngModel)]="mobile" class="animated fadeInUp">
+      <input type="text" placeholder="Address" [(ngModel)]="address" class="animated fadeInUp">
+
+      <input type="text" placeholder="City" [(ngModel)]="city" class="animated fadeInUp">
+      <input type="number" placeholder="Postal Pin Code" [(ngModel)]="pin" class="animated fadeInUp">
+
+
+      <ion-item no-lines="" mode="md">
+        <ion-label mode="md">Payment</ion-label>
+        <ion-select [(ngModel)]="payment" mode="md">
+          <ion-option mode="md" value="Cash On Delivery">Cash On Delivery</ion-option>
+          <ion-option mode="md" value="instamojo">Instamojo</ion-option>
+        </ion-select>
+      </ion-item>
+
+    </div>
+
+  </div>
+
+
+</ion-content>
+
+<ion-footer class="animated fadeInUp">
+  <button ion-button="" full mode="ios" no-margin="" (click)="Checkout()">
+    Checkout
+  </button>
+</ion-footer>

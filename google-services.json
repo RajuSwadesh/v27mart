@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "752255907909",
+    "firebase_url": "https://v27marketplace-e5dd9.firebaseio.com",
+    "project_id": "v27marketplace-e5dd9",
+    "storage_bucket": "v27marketplace-e5dd9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:752255907909:android:4ee5b157df344ffa304b2c",
+        "android_client_info": {
+          "package_name": "com.gowebbi.v27market"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "752255907909-na1vi197f8kj3p8hi60f6imdp3cgd8ei.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7B0hJ3kySpY2xlxQRcGa3ZNyA-oAx1bU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "752255907909-na1vi197f8kj3p8hi60f6imdp3cgd8ei.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

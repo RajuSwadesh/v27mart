@@ -1,0 +1,134 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>View Details</ion-title>
+
+    <ion-buttons right="" style="margin-right: 8px">
+      <button ion-button clear icon-only="" style="font-size: 15px;" (click)="updateAd(editId,cat_sub_id)">
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="product_imgs animated fadeInUp">
+
+    <p class="current_index" *ngIf="product_images">
+      {{slidenumber}} / {{product_images.length}}
+    </p>
+
+    <ion-slides (ionSlideDidChange)="slideChanged()">
+      <ion-slide pager *ngFor="let item of product_images;">
+        <img [src]="item.original">
+      </ion-slide>
+    </ion-slides>
+
+  </div>
+
+  <div class="bidding_details animated fadeInUp" *ngIf="fieldDetails">
+    <div class="row header" style=" margin-top: 40px;">
+      <div class="custom" *ngFor="let subfield of fieldDetails;let i=index">
+        <div class="subcustom"  *ngIf="subfield.field_details.field_type == 'Text'">
+         <label>{{subfield.field_details.label}}</label>
+         <input type="{{subfield.field_details.field_type}}" name="{{subfield.field_details.name}}" id="{{subfield.field_details.name}}"  value="{{subfield.field_value}}" placeholder="name...." readonly>
+        </div>
+  
+        <div *ngIf="subfield.field_details.field_type == 'Checkbox'" class="input_fields">
+          <b>{{subfield.field_details.label}}</b>
+             <div class="item" *ngFor="let arr of subfield.field_details.checkValue;let i=index">
+               <label> <span>{{arr.field_values}}</span>
+               <input *ngIf="arr.field_values == checkArr[i]" type="checkbox" checked name="{{subfield.field_details.name}}" id="{{subfield.field_details.name}}" [value]="arr.field_values" readonly>
+              </label>
+             </div>
+        </div>
+  
+        <div *ngIf="subfield.field_details.field_type == 'Radio'" class="input_fields">
+          <b>{{subfield.field_details.label}}</b>
+             <div class="item" *ngFor="let arr1 of subfield.field_details.genderValue;" >
+               <label> <span>{{arr1.gender_values}}</span>
+               <input *ngIf="arr1.gender_values == subfield.field_value" checked type="radio" name="{{subfield.field_details.name}}" id="{{subfield.field_details.name}}" [value]="arr1.gender_values" readonly>
+              </label>
+             </div>
+        </div>
+  
+        <div class="subcustom"  *ngIf="subfield.field_details.field_type == 'Number'">
+          <label>{{subfield.field_details.label}}</label>
+          <input type="{{subfield.field_details.field_type}}" name="{{subfield.field_details.name}}" id="{{subfield.field_details.name}}" [value]="subfield.field_value" placeholder="experince...." readonly>
+         </div>
+  
+         <div class="subcustom"  *ngIf="subfield.field_details.field_type == 'Textarea'">
+          <label>{{subfield.field_details.label}}</label>
+          <input type="{{subfield.field_details.field_type}}" name="{{subfield.field_details.name}}" id="{{subfield.field_details.name}}" [value]="subfield.field_value" placeholder="about...." readonly>
+         </div>
+  
+        <ion-row>
+          <ion-col col-4 *ngIf="subfield.imageUrl != false && subfield.field_id == 'image'">
+            <div class="container">
+              <img [src]="subfield.imageUrl"/>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="subfield.field_id == 'images' && subfield.imageUrl != false">
+          <ion-col col-4 *ngFor="let img of allImg">
+            <div class="container">
+              <img [src]="img"/>
+            </div>
+          </ion-col>
+        </ion-row>
+  
+      </div>
+      <div class="custom">
+      <div class="subcustom">
+          <label>Address</label>
+          <input type="text" [value]="address" readonly>
+      </div>
+    </div>
+    </div>
+    <!-- <div class="row" *ngFor="let field of fieldDetails">
+       <div class="col">{{field.field_value}}</div>
+    </div> -->
+    <!-- <ion-grid>
+      <ion-row>
+        <ion-col col-2 *ngFor="let field of fieldDetails">
+          <p>{{(field.field_details.label)?.substring(0,5)}}</p>
+          <h6>{{field.field_value}}</h6>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+      <!-- <h4>{{product_detail.product_title}}</h4>
+      <span class="status active">{{product_detail.status}}</span> -->
+    <!-- <ul>
+      <li *ngFor="let field of fieldDetails">
+        <p>{{field.field_details.label}}</p>
+      </li> -->
+      <!-- <li>
+        <p>item</p>
+        <h6>165378TX85</h6>
+      </li> -->
+      <!-- <li>
+        <p>price</p>
+        <h6>{{product_detail.price}}</h6>
+      </li>
+
+      <li>
+        <p>ends</p>
+        <h6>{{product_detail.expire_date}}</h6>
+      </li>
+      <li>
+        <p>stock</p>
+        <h6>{{product_detail.stock}}</h6>
+      </li> -->
+
+    <!-- </ul> -->
+    <!-- <ion-list>
+      <ion-item>
+        <h3>Product Condition<span>{{product_detail.product_condition}}</span></h3>
+      </ion-item>
+      <ion-item>
+        <p>{{product_detail.description}}</p>
+      </ion-item>
+    </ion-list> -->
+   </div>
+</ion-content>

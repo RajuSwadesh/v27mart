@@ -1,0 +1,43 @@
+<ion-header mode="md" no-border="">
+
+  <ion-navbar mode="md" color="primary">
+
+    <ion-title mode="ios" text-capitalize="">Edit Profile</ion-title>
+
+    <ion-buttons right="" style="margin-right: 8px" (tap)="save()">
+      <button ion-button clear icon-left="" color="extralight">
+        <ion-icon name="checkmark"></ion-icon>
+        Save
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <!-- <div class="profile_area">
+    <img src="https://randomuser.me/api/portraits/men/61.jpg" width="80"/>
+    <button ion-button="" icon-left="" clear small color="extralight">
+      <ion-icon name="camera"></ion-icon>
+      Upload
+    </button>
+  </div> -->
+
+  <div class="product_details animated fadeInUp">
+    <input type="text" [(ngModel)]="User.name">
+  </div>
+
+  <div class="product_details animated fadeInUp">
+    <input type="tel" [(ngModel)]="User.mobile">
+  </div>
+
+  <div class="product_details animated fadeInUp">
+    <input type="email" [(ngModel)]="User.email">
+  </div>
+
+  <!-- <div class="product_details animated fadeInUp">
+    <textarea rows="3">Kelley A. Fleming 196 Woodside Circle Mobile, FL 36602 Phone:240-256-1942</textarea>
+  </div> -->
+</ion-content>

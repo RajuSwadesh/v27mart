@@ -1,0 +1,48 @@
+<ion-header mode="md">
+
+  <ion-navbar mode="md" color="primary">
+
+    <ion-title mode="ios" text-capitalize="">WishList</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div *ngIf="wishlist_length==0" id="no-data-wish" class="animated fadeInUp">
+    <img src="assets/imgs/empty-whishlist-icon.png" />
+    <p style="font-weight: bolder;
+      font-size: 18px;
+      color: #545353;">WishList Is Empty</p>
+    <p>Looks like you have no items in your wishlist</p>
+    <button ion-button (click)="shop()">Continue Shopping</button>
+  </div>
+
+  <div class="product_details" *ngIf="wishlist_length>0">
+    <ion-row no-padding="" *ngFor="let item of wishList">
+      <ion-col style="max-width: 120px;padding-left: 0">
+        <img [src]="item.product_image.small">
+        <p class="out" *ngIf="item.status=='Active' && item.stock==0">Out Of Stock</p>
+        <p class="out" style="font-size: 10px;" *ngIf="item.status=='Inactive'">Currently Unavailable</p>
+      </ion-col>
+      <ion-col class="description" (click)="viewDetail(item.url)">
+        <h4>{{item.product_title}}</h4>
+        <p class="few-left" *ngIf=" item.status=='Active' && (item.stock>0 && item.stock<5)">Only a few lefts</p>
+        <div class="price_area">
+          <h3>&#x20B9;{{item.sale_price}}</h3>
+        </div>
+      </ion-col>
+
+      <ion-col style="max-width: 30px;padding-left: 0;margin-top: -15px;">
+        <p style="float: right;" (click)="remove(item.id)">
+          <ion-icon name="trash" style="color: grey;
+          font-size: 22px;"></ion-icon>
+        </p>
+      </ion-col>
+
+    </ion-row>
+  </div>
+
+</ion-content>

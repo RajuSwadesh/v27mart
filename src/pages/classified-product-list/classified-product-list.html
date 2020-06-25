@@ -1,0 +1,75 @@
+<!--
+  Generated template for the ClassifiedProductListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Classified Product List</ion-title>
+  </ion-navbar>
+  <ion-icon ios="ios-pin" md="md-pin"></ion-icon>
+  <ion-input class="srch-area" type="text" id="ownLocation" [(ngModel)]="own_location.address" placeholder="Search here.."></ion-input>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="product_list.length==0 && product_list != undefined" class="no-product">
+    <img src="assets/imgs/no-product.png" />
+    <p>No Products Available</p>
+  </div>
+
+  <!-- <div *ngIf="product_list.length>0">
+        <ion-grid style="padding: 8px 0">
+          <ion-row>
+            <ion-col col-6="" class="animated fadeInUp" *ngFor="let detail of product_list" (tap)="details(detail)" >
+              <div class="button_wrapper">
+                <img *ngIf="detail.imageUrl != false" [src]="detail.imageUrl">
+                <p >{{detail.field_details.label}}</p>
+                <div class="price_area">
+                  <h4 *ngIf="detail.field_value != ''">{{detail.field_value}}</h4>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-infinite-scroll (ionInfinite)="moreProducts($event)" *ngIf="type==undefined"> 
+          <ion-infinite-scroll-content loadingSpinner="bubbles"
+          loadingText="Loading more products..."></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div> -->
+
+  <ion-list>
+    <ion-item *ngFor="let detail of field_data">
+      <!-- <ion-avatar item-start *ngIf="detail.field_id == 'image'">
+        <h2 style="font-size:13px;font-weight: bold;text-transform: uppercase;color:#4a4a4a;">Image</h2>
+        <img style="width:145px;height:122px;border-radius: 0%;" src="{{detail.imageUrl}}" alt="">
+      </ion-avatar> -->
+      <h2>{{detail.label}}</h2>
+      <h3>{{detail.value}}</h3>
+    </ion-item>
+    <!-- <ion-item *ngFor="let detail of product_list">
+      <ion-avatar item-start *ngIf="detail.imageUrl != false" >
+        <img src="{{detail.imageUrl}}" alt="">
+      </ion-avatar>
+      <h2>{{detail.field_details.label}}</h2>
+      <h3>{{detail.field_value}}</h3>
+    </ion-item> -->
+<!-- 
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="https://randomuser.me/api/portraits/men/49.jpg" alt="">
+      </ion-avatar>
+      <h2>Name</h2>
+      <h3>John Doe</h3>
+    </ion-item>
+    <ion-item>
+      <h2>Name</h2>
+      <h3>John Doe</h3>
+    </ion-item>
+    <ion-item>
+      <h2>Name</h2>
+      <h3>John Doe</h3>
+    </ion-item> -->
+
+  </ion-list>
+</ion-content>

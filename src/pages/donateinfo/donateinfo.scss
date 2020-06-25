@@ -1,0 +1,61 @@
+page-donateinfo {
+  .srch-area{
+    border: 1px solid #0000001c;
+    // height: 32px;
+    padding: 5px 17px;
+  }
+ .scroll-content {
+   text-align: center;
+   h4 {
+     margin-bottom: 40px;
+   }
+   p {
+     text-align: left;
+     font-size: 15px;
+     line-height: 22px;
+   }
+   .logo {
+     margin-top: 15px;
+   }
+   .button {
+     margin-top: 40px;
+   }
+   ul {
+     padding-left: 0;
+     li {
+       list-style-type: none;
+       display: inline-block;
+       width: 24%;
+       img {
+         border-radius: 6px;
+       }
+     }
+   }
+   .donation-list {
+     h5 {
+      margin: 5px 0;
+      font-size: 14px;
+      text-align: left;
+      text-transform: capitalize;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+     }
+
+     img{
+      width: 100px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 5px;
+     }
+  }
+ }
+
+ .no-prod{
+  text-align: -webkit-center;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  padding-top: 100px;
+  padding-bottom: 117px;
+ }
+}

@@ -1,0 +1,11 @@
+[0317/120909.458:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0318/104406.509:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0318/135852.258:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0318/151606.196:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0318/165829.528:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0318/172314.120:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0318/180858.698:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0318/191152.182:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0319/105738.899:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0319/115646.921:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0507/221837.471:ERROR:file_io.cc(89)] ReadExactly: expected 36, observed 0

@@ -1,0 +1,61 @@
+<!--
+  Generated template for the ExchangeRequestPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header mode="md">
+  <ion-navbar mode="md" color="primary">
+    <ion-title mode="ios" text-capitalize="" style="">Exchange</ion-title>
+    <ion-buttons right="" (tap)="close()" style="margin-right: 8px">
+      <button ion-button clear icon-only="">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card class="ex-card">
+  <ion-item>
+    <ion-row>
+      <ion-col cols-2>
+        <img [src]="pro_img"/>
+      </ion-col>
+      <ion-col cols-10>
+        <h4 style="white-space:normal;">{{name}}</h4>
+        <p>Qty:{{qty}}</p>
+        <p>Variation:{{variation_value}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <p class="upload-txt">Upload Images Of Your Product:</p>
+  <ion-row>
+    <ion-col cols-6 class="img1" (click)="chooseImage('img1')">
+      <img src="assets/imgs/up1.png" class="up" *ngIf="image1==''"/>
+      <img [src]="image1" *ngIf="image1" class="proimg"/>
+    </ion-col>
+    <ion-col cols-6 class="img2" (click)="chooseImage('img2')">
+        <img src="assets/imgs/up1.png" class="up" *ngIf="image2==''"/>
+        <img [src]="image2" *ngIf="image2" class="proimg"/>
+      </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col cols-6 class="img1" (click)="chooseImage('img3')">
+          <img src="assets/imgs/up1.png" class="up" *ngIf="image3==''"/>
+          <img [src]="image3" *ngIf="image3" class="proimg"/>
+      </ion-col>
+      <ion-col cols-6 class="img2" (click)="chooseImage('img4')">
+          <img src="assets/imgs/up1.png" class="up" *ngIf="image4==''"/>
+          <img [src]="image4" *ngIf="image4" class="proimg"/>
+        </ion-col>
+    </ion-row>
+  <ion-textarea rows="5" placeholder="Write your comment.." [(ngModel)]="comment">
+
+  </ion-textarea>
+
+  <button ion-button block class="btn" (click)="submit()">Submit</button>
+  </ion-card>
+
+</ion-content>

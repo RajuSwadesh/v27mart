@@ -1,0 +1,104 @@
+<ion-header mode="md">
+  <ion-navbar  mode="md" color="primary">
+    <ion-title mode="ios" text-capitalize="">Edit Detail</ion-title>
+</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+          <ion-label floating>Category</ion-label>
+          <ion-select [(ngModel)]="category" (ionChange)="selectedVal(item)">
+              <ion-option *ngFor="let item of category_list" value="{{item.id}}" >{{item.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item *ngIf="category && sub_cat_section.length>0">
+            <ion-label floating>Sub Category</ion-label>
+            <ion-select [(ngModel)]="sub_category" (ionChange)="selectedVal1()">
+                <ion-option *ngFor="let item of sub_cat_section" value="{{item.id}}" >{{item.name}}</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Product Title</ion-label>
+          <ion-input type="text" [(ngModel)]="product_title" class="my-input"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Description</ion-label>
+          <ion-textarea type="text" [(ngModel)]="description" class="my-input"></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Stock</ion-label>
+          <ion-input type="number" [(ngModel)]="stock" class="my-input"></ion-input>
+        </ion-item>
+
+        <ion-item>
+        <ion-label floating>Product Condition</ion-label>
+        <ion-select [(ngModel)]="product_condition">
+          <ion-option value="New">New</ion-option>
+          <ion-option value="Used">Used</ion-option>
+          <ion-option value="Damaged">Damaged</ion-option>
+        </ion-select>
+        </ion-item>
+
+        <ion-item no-lines>
+          <ion-label floating>Contact Person</ion-label>
+          <ion-input type="text" [(ngModel)]="contact_person" class="my-input"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Contact Number</ion-label>
+          <ion-input type="tel" [(ngModel)]="contact_number" class="my-input"></ion-input>
+        </ion-item>
+
+        <!-- <ion-item>
+          <ion-label floating>Address</ion-label>
+          <ion-input type="text" [(ngModel)]="address" class="my-input"></ion-input>
+        </ion-item> -->
+
+        <ion-item>
+          <ion-label floating>City</ion-label>
+          <ion-input type="text" [(ngModel)]="city" class="my-input"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Pincode</ion-label>
+          <ion-input type="tel" [(ngModel)]="pincode" class="my-input"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Product Status</ion-label>
+            <ion-select [(ngModel)]="product_status">
+              <ion-option value="Active">Active</ion-option>
+              <ion-option value="Inactive">Inactive</ion-option>
+              <ion-option value="Blocked">Blocked</ion-option>
+            </ion-select>
+            </ion-item>
+
+        <ion-item no-lines>
+         <span item-start>Choose Images <span style="color:grey;font-size:13px;">(Maximum 6 Images)</span></span><span item-end class="cam" (click)="chooseimg()" *ngIf="donation_img_length>0"><ion-icon name="camera"></ion-icon></span>
+        </ion-item>
+
+        <ion-row>
+          <ion-col col-4 *ngFor="let item of donation_images;let i=index">
+            <div class="container">
+            <img [src]="item"/>
+            <div class="top-right" (click)="remove(i)"><ion-icon name="close"></ion-icon></div>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <div class="custom" style="margin-top:17px;width: 97%;margin-left: 11px;" >
+          <div class="subcustom" >
+          <label>Address</label>
+          <input type="text" id="GoForm"  placeholder="enter address...." [(ngModel)]="FormLocation.address">
+          </div>
+          </div>
+
+
+        <button ion-button color="primary" full class="animated fadeInLeft" style="animation-delay: 0.6s" (tap)="donateUpdate()">Submit</button>
+      </ion-list>
+</ion-content>

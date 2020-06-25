@@ -1,0 +1,69 @@
+<ion-header mode="md">
+
+  <ion-navbar mode="md" color="primary">
+
+    <ion-title mode="ios" text-capitalize="" *ngIf="type==undefined">{{category_detail.name}}</ion-title>
+    <ion-title mode="ios" text-capitalize="" *ngIf="type=='new_arrival'">New Arrival Products</ion-title>
+    <ion-title mode="ios" text-capitalize="" *ngIf="type=='featured'">Featured Products</ion-title>
+
+    <ion-buttons right="" (tap)="search()" *ngIf="type==undefined">
+      <button ion-button clear icon-only="" >
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div *ngIf="product_list.length==0" class="no-product">
+      <img src="assets/imgs/no-product.png"/>
+      <p>No Products Available</p>
+  </div>
+
+  <div *ngIf="product_list.length>0">
+  <ion-grid style="padding: 8px 0">
+    <ion-row>
+      <ion-col col-6="" class="animated fadeInUp" *ngFor="let detail of product_list" (tap)="deatils(detail.url)" >
+        <div class="button_wrapper">
+          <img [src]="detail.product_image.small">
+          <h4>{{detail.product_title}}</h4>
+          <div class="price_area">
+            <h3>Rs. {{detail.sale_price}}</h3>
+            <!-- <h6>$120</h6>
+            <small>39%</small> -->
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-infinite-scroll (ionInfinite)="moreProducts($event)" *ngIf="type==undefined">
+    <ion-infinite-scroll-content loadingSpinner="bubbles"
+    loadingText="Loading more products..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  </div>
+</ion-content>
+
+<ion-footer *ngIf="product_list.length>0 && type==undefined">
+  <ion-row>
+    <ion-col col-4 style="border-right: 1px solid #e2dede;">
+      <button ion-button="" full clear color="dark" icon-start (tap)="Categories()">
+        Category
+      </button>
+    </ion-col>
+    <ion-col col-4 style="border-right: 1px solid #e2dede;">
+      <button ion-button="" full clear color="dark" (tap)="sortby()">
+        Sort
+        <!-- <small>{{sortingtype}}</small> -->
+      </button>
+    </ion-col>
+    <ion-col col-4>
+      <button ion-button="" full clear color="dark" (tap)="filterby()">
+        Filters
+        <!-- <small>{{filtertype}}</small> -->
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

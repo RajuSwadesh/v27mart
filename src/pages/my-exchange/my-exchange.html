@@ -1,0 +1,27 @@
+<!--
+  Generated template for the MyExchangePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>My Exchange</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item *ngFor="let item of myExchange_list" (click)="goToNegotiate(item)">
+    <ion-avatar item-start>
+      <img [src]="item.product_image.original"/>
+    </ion-avatar>
+    <p style="white-space: normal;font-weight: 500;
+    color: black;">{{item.product_title}}</p>
+    <p>Seller:{{item.seller_name}}</p>
+  </ion-item>
+
+  <ion-infinite-scroll (ionInfinite)="moreData($event)"> 
+    <ion-infinite-scroll-content loadingSpinner="bubbles"
+    loadingText="Loading..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

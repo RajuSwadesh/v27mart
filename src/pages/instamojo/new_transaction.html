@@ -1,0 +1,67 @@
+<ion-header mode="md">
+  <ion-navbar mode="md" color="primary">
+    <ion-title mode="ios" text-capitalize="">Payment</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding *ngIf="page_type=='checkout'">
+    <div class="product_details">
+        <h4>Shipping Address </h4>
+        <div class="address_wrapper">
+          <ion-card class="animated fadeInRight" (click)="selectAddress(address)">
+            <ion-card-content no-padding="">
+              <p style="font-weight: 500;">{{fname}} {{lname}}</p>
+              <p>{{phone}}</p>
+              <p>{{address}}</p>
+            </ion-card-content>
+          </ion-card>
+        </div>
+     </div>
+
+     <div class="product_details">
+        <h4>Cost Detail</h4>
+        <div class="address_wrapper">
+          <ion-card class="animated fadeInRight" (click)="selectAddress(address)">
+            <ion-card-content no-padding="">
+              <p style="font-weight: 500;">Item Total:{{item_total}}</p>
+              <p>Shipping Cost:{{shipping_cost}}</p>
+              <p>Grand Total:{{amount}}</p>
+            </ion-card-content>
+          </ion-card>
+        </div>
+     </div>
+  
+  <button ion-button (click)="payNow()" *ngIf="page_type=='checkout'">Pay With Instamojo (amount Rs.{{amount}})</button>
+</ion-content>
+
+
+<ion-content padding *ngIf="page_type=='offer-checkout'">
+  <div class="product_details">
+      <h4>Shipping Address </h4>
+      <div class="address_wrapper">
+        <ion-card class="animated fadeInRight">
+          <ion-card-content no-padding="">
+            <p style="font-weight: 500;">{{firstname}} {{lastname}}</p>
+            <p>{{mobile}}</p>
+            <p>{{address1}}</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+   </div>
+
+   <div class="product_details">
+      <h4>Cost Detail</h4>
+      <div class="address_wrapper">
+        <ion-card class="animated fadeInRight">
+          <ion-card-content no-padding="">
+            <!-- <p style="font-weight: 500;">Item Total:{{item_total}}</p> -->
+            <p>Shipping Cost:{{shippingAmt}}</p>
+            <p>Grand Total:{{orderAmt}}</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+   </div>
+
+<button ion-button (click)="payNowOffer()" *ngIf="page_type=='offer-checkout'">Pay With Instamojo (amount Rs.{{orderAmt}})</button>
+</ion-content>

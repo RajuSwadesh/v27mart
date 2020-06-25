@@ -1,0 +1,80 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>chat-message</ion-title>
+  </ion-navbar>
+</ion-header> -->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{this.name}}</ion-title>
+    <!-- <p>Last seen 4 min ago</p> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding  #content>
+  <div class="chat-history" >
+    <!-- <ul>
+      <li class="clearfix">
+        <div class="message-data" >
+          <span class="message-data-time" >10:14 AM, Today</span> &nbsp; &nbsp;
+          <span class="message-data-name" >Me</span>
+        </div>
+        <div class="message other-message">
+          Well I am not sure. The rest of the team is not here yet. Maybe in an hour or so? Have you faced any problems at the last phase of the project?
+        </div>
+      </li>
+      <li>
+        <div class="message-data">
+          <span class="message-data-name">Charles</span>
+          <span class="message-data-time">10:20 AM, Today</span>
+        </div>
+        <div class="message my-message">
+          Actually everything was fine. I'm very excited to show this to our team.
+        </div>
+      </li>
+
+      <li>
+        <div class="message-data">
+          <span class="message-data-name"> Charles</span>
+          <span class="message-data-time">10:31 AM, Today</span>
+        </div>
+        <div class="message my-message">
+           I'm very excited to show this to our team.
+        </div>
+      </li>
+    </ul> -->
+ 
+    <ul *ngIf="messageLength>0">
+      <li *ngFor="let m of messageList" class="clearfix">
+          <div *ngIf="m.class == 'my-message'">
+             <div class="message-data" >
+               <span class="message-data-name">Me</span>
+               <span class="message-data-time">{{m.timestamp | date:'h:mm a'}}</span>
+             </div>
+             <div ngClass="message my-message" *ngIf="m.message != ''">
+              {{m.message}}
+             </div>
+             <div ngClass="message my-message" *ngIf="m.message== ''" >
+              <img [src]="m.imageurl" class="img-fluid" >
+             </div>
+            </div>
+            <div *ngIf="m.class == 'other-message'">
+                <div class="message-data" text-right>
+                    <span class="message-data-time" >{{m.timestamp | date:'h:mm a'}} </span> &nbsp; &nbsp;
+                    <span class="message-data-name">{{name}}</span>
+                  </div>
+                  <div ngClass="message other-message" *ngIf="m.message != ''">
+                   {{m.message}}
+                 </div>
+                 <div ngClass="message other-message" *ngIf="m.message == ''" >
+                   <img [src]="m.imageurl" class="img-fluid" >
+                 </div>
+            </div>
+        </li>
+        </ul>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-input [(ngModel)]="message" placeholder="Write Here..."></ion-input>
+  <button ion-button><ion-icon name="ios-attach" (click)="attachFile()"></ion-icon></button>
+  <button ion-button (click)="sendMessage()"><ion-icon name="paper-plane"></ion-icon></button>
+</ion-footer>

@@ -1,0 +1,40 @@
+page-negotiate {
+    .snd-btn{
+        margin-top: -5px;
+    }
+
+    .write-msg{
+        width: 60%;
+        /* height: 101%; */
+        border: 0;
+        padding: 10px;
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+
+    .item{
+    padding: 7px;
+    background: #e1f5e1;
+    margin-bottom: 5px;
+    }
+
+    .me{
+    width: 85%;
+    float: right;
+    border-radius: 15px;
+    }
+    .other{
+    width: 85%;
+    float: left;
+    border-radius: 15px;
+    }
+    .price{
+    width: 23%;
+    border: 0;
+    padding: 10px;
+    margin-top: 5px;
+    }
+    ion-footer{
+        background: #caeef7;
+    }
+}

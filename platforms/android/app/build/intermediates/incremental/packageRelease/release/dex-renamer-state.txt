@@ -1,0 +1,4 @@
+#Wed Jun 24 16:43:30 IST 2020
+base.0=E\:\\SWADESH\\Marketplace\\platforms\\android\\app\\build\\intermediates\\transforms\\dex\\release\\0
+path.0=classes.dex
+renamed.0=classes.dex

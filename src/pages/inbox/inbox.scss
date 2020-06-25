@@ -1,0 +1,10 @@
+page-inbox {
+ion-list.list{
+  margin-bottom: 0;
+}
+  @for $i from 1 through 80 {
+    .item:nth-child(#{$i}n) {
+      animation-delay: #{$i * 0.05}s;
+    }
+  }
+}

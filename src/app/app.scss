@@ -1,0 +1,524 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.successToast
+{
+  .toast-container {
+     background: green;
+     }
+}
+
+.warningToast
+{
+  .toast-container {
+    background: indianred;
+    }
+}
+
+
+//Animation
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3)
+  }
+  50% {
+    opacity: 1
+  }
+}
+
+.zoomIn {
+  animation-name: zoomIn
+}
+
+.fadeInLeft {
+  animation-name: fadeInLeft
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0)
+  }
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0)
+  }
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0)
+  }
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+
+.fadeInUp {
+  animation-name: fadeInUp
+}
+
+//Animation end
+.swiper-pagination-bullet-active {
+  background: rgba(0, 0, 0, 0.72);
+}
+
+button {
+  ion-badge.badge {
+    position: absolute;
+    top: -2px;
+    border-radius: 100%;
+    right: -4px;
+    font-size: 10px;
+    height: 18px;
+    width: 18px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,500i,600,600i,700,700i,800,900');
+
+h1, h2, h3, h4, h5, h6, p, input, textarea, ion-label, ion-input, ion-textarea, ion-title {
+  font-family: 'Montserrat', sans-serif;
+}
+.segment .segment-button {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.button {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.slides {
+  img {
+    min-width: 100%;
+    display: flex;
+  }
+}
+
+.ion-page > ion-content {
+  background-color: #f7f7f7;
+}
+
+ion-loading .loading-wrapper {
+  box-shadow: none !important;
+  border-radius: 8px !important;
+}
+
+.title-ios {
+  left: 0;
+  top: 0;
+  padding: 0 90px 1px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  pointer-events: none;
+  .toolbar-title.toolbar-title-ios {
+    color: #ffffff;
+  }
+}
+
+.header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
+  opacity: 0.5;
+}
+
+button.back-button {
+  color: white;
+}
+
+.bar-button[icon-only] {
+  color: white;
+}
+
+//menu
+#menu {
+  .menu-inner {
+    .scroll-content {
+      ion-list {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        margin: 0;
+        .first_child {
+          // flex: 1;
+          position: relative;
+          padding: 36px 0;
+          background-color: map_get($colors, primary);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          .item {
+            background-color: transparent !important;
+            color: #ffffff;
+            &:first-child {
+              ion-label {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                img {
+                  width: 60px;
+                  height: 60px;
+                  border-radius: 100%;
+                  margin-bottom: 16px;
+                }
+              }
+            }
+          }
+        }
+        .middle_child {
+          // flex: 3;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          overflow: auto;
+          // margin-top: 16px;
+          padding-top: 30px;
+          .item {
+            &:first-child {
+              // margin-top: 24px;
+            }
+          }
+        }
+        .last_child {
+          padding: 16px 0;
+        }
+        .item {
+          border: 0;
+          ion-avatar {
+            border-radius: 0;
+            min-width: 24px;
+            min-height: 24px;
+            max-width: 24px;
+            max-height: 24px;
+            margin: 0 16px 0 0;
+            img {
+              width: 100%;
+              border-radius: 0;
+              height: auto;
+            }
+          }
+        }
+        .item-inner {
+          border: 0;
+          padding-right: 0;
+          background-image: none;
+        }
+        ion-label {
+          white-space: normal;
+          margin: 0;
+          font-weight: 200;
+        }
+        ion-thumbnail[item-left] {
+          background-color: white;
+          padding: 4px;
+          border-radius: 4px;
+          margin: 0;
+        }
+      }
+      .item-block:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+//menu end
+
+.toolbar-md {
+  padding: 4px 9px;
+}
+
+.company_details {
+  background-color: #2196f3;
+  padding: 0 16px 16px;
+  ion-list {
+    margin: 0;
+    ion-item {
+      background-color: transparent;
+      border: 0 !important;
+      ion-thumbnail {
+        background-color: #f9f7f7;
+        padding: 4px;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      ion-label {
+        white-space: normal;
+        h2 {
+          color: #fff;
+          font-size: 20px;
+        }
+        small {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+
+.popover-content {
+  width: 90% !important;
+  left: 5% !important;
+}
+
+ion-popover {
+  background-color: rgba(0, 0, 0, 0.4);
+  .popover-content {
+    border-radius: 10px !important;
+    width: 200px;
+    transform-origin: center center !important;
+    box-shadow: none !important;
+  }
+}
+
+.product_details {
+  background-color: #ffffff;
+  padding: 16px;
+  float: left;
+  width: 100%;
+  margin-bottom: 8px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  h4 {
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+  }
+  h3 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  small {
+    opacity: 0.5;
+  }
+  p {
+    line-height: 1.5;
+    color: #5a5a5a;
+  }
+  .more_btn {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 16px 0 0 0;
+    .button-inner {
+      justify-content: start;
+    }
+  }
+  ion-segment {
+    overflow: auto;
+  }
+  ion-segment-button.segment-button {
+    border: 1px solid #ccc;
+    margin-right: 12px;
+    padding: 0 18px;
+    border-radius: 20px;
+    font-size: 11px;
+    text-transform: capitalize;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 50px;
+  }
+  ion-segment-button.segment-button.segment-activated {
+    background-color: map_get($colors, primary);
+    border-color: rgba(0, 0, 0, 0.16);
+    color: #ffffff;
+  }
+
+  .discount_wrapper {
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+    float: left;
+    width: 100%;
+    .item {
+      ion-radio.radio {
+        align-self: flex-start;
+        padding-top: 5px;
+      }
+      .label {
+        white-space: normal;
+        p {
+          margin-top: 8px;
+          float: left;
+          font-size: 12px;
+          color: #8a8a8a;
+        }
+        b {
+          margin-left: 8px;
+          font-size: 14px;
+          text-transform: capitalize;
+          color: map_get($colors, secondary);
+        }
+      }
+    }
+    .item-radio-checked ion-label {
+      color: inherit;
+    }
+  }
+
+  .button_wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.58);
+    padding: 16px 0;
+    border-radius: 6px;
+    img {
+      width: 100%;
+    }
+    h4 {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 0;
+      text-transform: capitalize;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0 4px;
+      text-align: left;
+    }
+    .price_area {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin: 16px 0;
+      padding: 0 4px;
+      h3 {
+        margin: 0;
+        font-weight: normal;
+        font-size: 16px;
+      }
+      h6 {
+        color: #797979;
+        text-decoration: line-through;
+        font-weight: normal;
+        font-size: 14px;
+        margin: 0 8px;
+      }
+      small {
+        color: map-get($colors, secondary);
+        font-size: 12px;
+      }
+    }
+    .cashback {
+      background-color: map-get($colors, secondarylight);
+      padding: 4px;
+      border-radius: 4px;
+      align-self: start;
+      margin: 0 4px;
+    }
+  }
+  table {
+    tr {
+      border-bottom: 1px solid #f7f7f7;
+      &:last-child {
+        border-bottom: 0;
+      }
+      td {
+        padding: 8px 0;
+        &:last-child {
+          padding-left: 16px;
+          color: #666;
+        }
+      }
+    }
+  }
+  ion-card.card {
+    margin: 0;
+    width: 100%;
+    box-shadow: none;
+  }
+
+}
+
+input, textarea {
+  width: 100%;
+  border: 0;
+}
+
+//new added
+ion-alert.select-alert {
+  .alert-wrapper {
+    box-shadow: none;
+    border-radius: 8px;
+  }
+}
+
+.fadeInRight {
+  animation-name: fadeInRight
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0)
+  }
+  to {
+    opacity: 1;
+    transform: none
+  }
+}

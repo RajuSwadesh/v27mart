@@ -1,0 +1,53 @@
+page-seller-registration {
+    .back{
+        .icon{
+            text-align: left;
+            font-size: 1.7em!important;
+        }
+    }
+    .upper-sec{
+        text-align: center;
+        img{
+            width: 100px;
+        }
+        .p1{
+            font-size: 18px;
+            font-weight: 500;
+            color: #0ebeeb;
+        }
+        .p2{
+            margin-top: -10px;
+            font-size: 17px;
+            font-weight: 200;
+            color: #011e25;
+        }
+    }
+
+    .form-area{
+        margin-top:27px;
+
+        .item{
+            margin-bottom: 5px;
+            ion-input{
+                font-size:14px;
+            }
+        }
+    }
+
+    
+.hiddenFileInput > input{
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+  }
+  .hiddenFileInput{
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    /*for the background, optional*/
+    // background: center center no-repeat!important;
+    // background-size: 75% 75%!important;
+    
+  }
+  
+}

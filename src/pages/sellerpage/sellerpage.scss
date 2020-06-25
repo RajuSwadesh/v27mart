@@ -1,0 +1,44 @@
+page-sellerpage {
+  .profile_area {
+    display: flex;
+    flex-direction: column;
+    background-color: map_get($colors, primary);
+    align-items: center;
+    color: #ffffff;
+    padding: 4px 0 24px 0;
+    img{
+      border-radius: 100%;
+    }
+    p{
+      margin: 0;
+      &:last-child{
+        margin-top: 4px;
+        opacity: 0.8;
+      }
+    }
+  }
+  .sell_wrapper {
+    position: relative;
+    ion-badge.badge {
+      position: absolute;
+      top: -10px;
+      border-radius: 100%;
+      left: -8px;
+    }
+  }
+
+  ion-col.description.col {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    h6{
+      margin: 0;
+    }
+    p{
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
+  }
+
+}

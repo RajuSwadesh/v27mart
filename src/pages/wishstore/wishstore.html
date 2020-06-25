@@ -1,0 +1,32 @@
+<ion-header mode="ios">
+  <ion-navbar color="primary">
+    <ion-title>Wish Store</ion-title>
+    <ion-buttons right>
+      <button ion-button="" color="light" style="font-size: 36px; margin-right: 8px;" (tap)="wishstorelist()">
+        <ion-icon name="ios-list"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div class="wish-form">
+    <img src="assets/imgs/wishstorefull.png" alt="">
+    <h5>Add item to your Wish Store</h5>
+    <ion-list>
+      <ion-item>
+        <ion-input placeholder="Your Item"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-textarea placeholder="Description"></ion-textarea>
+      </ion-item>
+      <button ion-button class="btn-transparent"><ion-icon name="camera"></ion-icon> Add image</button>
+
+     <div style="text-align: center;">
+       <button ion-button color="primary" class="animated fadeInLeft">Submit</button>
+     </div>
+
+    </ion-list>
+  </div>
+</ion-content>

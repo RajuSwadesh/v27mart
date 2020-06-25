@@ -1,0 +1,93 @@
+<ion-header mode="md" no-border="">
+
+  <ion-navbar mode="md" color="primary">
+
+    <ion-title mode="ios" text-capitalize="">profile</ion-title>
+
+    <ion-buttons right="" style="margin-right: 8px" (tap)="edit()">
+      <button ion-button clear icon-left="" color="extralight">
+        <ion-icon name="create"></ion-icon>
+        Edit
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div class="profile_area" >
+    <img [src]="userData.profile_photo.url" width="80" *ngIf="userData"/>
+    <h3 *ngIf="userData">{{userData.name}}</h3>
+    <p *ngIf="userData">{{userData.email}}</p>
+
+    <ion-row style="width: 100%" margin-top="">
+      <ion-col col-6>
+        <button ion-button="" full clear icon-left="" color="extralight" (tap)="sell()"
+                style="border-right: 1px solid rgba(255,255,255,0.26)">
+          <ion-icon name="cart"></ion-icon>
+          Sell
+        </button>
+      </ion-col>
+      <ion-col col-6>
+        <button ion-button="" full clear icon-left="" color="extralight" (tap)="exchangeList()">
+          <span class="sell_wrapper">
+            <!-- <ion-badge color="danger">24</ion-badge> -->
+            <ion-icon name="chatbubbles"></ion-icon>
+              My Exchange
+             </span>
+        </button>
+      </ion-col>
+    </ion-row>
+
+
+  </div>
+
+
+  <div class="product_details animated fadeInUp">
+    <h4>My Order
+      <button ion-button="" small clear mode="ios" text-capitalize="" no-margin=""  *ngIf="order_length>0" (click)="seeAllOrders()">
+        See All
+      </button>
+    </h4>
+    <div *ngIf="order_length>0">
+    <ion-row no-padding="" *ngFor="let Items of Orders" (tap)="OrderInfo(Items)" >
+        <ion-col class="description">
+          <h6>Order ID : <span style="font-size: 14px;">{{Items.id}} on {{Items.created_at.date}}</span></h6>
+          <p>Amount : {{Items.total}}</p>
+        </ion-col>
+    </ion-row>
+    </div>
+    <p *ngIf="order_length==0"> You have no order </p>
+
+  </div>
+
+
+
+  <div class="product_details animated fadeInUp">
+    <h4>Address <span class="addnew" (click)="addnew()"><ion-icon name="add">Add</ion-icon></span></h4>
+    <div *ngIf="address_length>0">
+    <div no-margin="" *ngFor="let Item of Address" style="border-bottom: 1px solid #dedede; margin-bottom: 5px; padding-bottom: 5px;">
+      <p>{{Item.firstname}} {{Item.lastname}}</p>
+      <p style="line-height: 1px;">{{Item.mobile}}</p>
+      <p style="line-height: 18px;">{{Item.address1}}</p>
+      <p (click)="remove(Item.id)"><ion-icon name="trash" style="float:right;margin-top: -18px;
+        color: #948c8c;"></ion-icon></p>
+    </div>
+    </div>
+    <div *ngIf="address_length==0">
+      <p>You have no saved address</p>
+    </div>
+  </div>
+
+
+</ion-content>
+<!-- <ion-footer>
+    <div class="product_details animated fadeInUp">
+        <button ion-button="" clear full small color="danger">
+          Delete account
+        </button>
+    </div>
+</ion-footer> -->

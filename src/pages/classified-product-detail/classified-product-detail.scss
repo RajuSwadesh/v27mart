@@ -1,0 +1,129 @@
+page-classified-product-detail {
+
+  .donation-info {
+    h6 {
+      font-size: 14px;
+      margin: 10px 0;
+      text-transform: none;
+      color: #079ad4;
+      span {
+        font-size: 13px;
+        text-transform: capitalize;
+        color: #000;
+      }
+    }
+    .stock {
+      margin: 4px 0;
+      width: 100px;
+      color: #fff;
+      text-align: center;
+      padding: 5px;
+      border-radius: 4px;
+    }
+    .in {
+      background: #319a08;
+    }
+    .out {
+      background: #cc0c0c;
+    }
+    p {
+      margin: 12px 0;
+      font-size: 13px;
+      line-height: 20px;
+      span {
+        font-weight: 500;
+      }
+    }
+    h5 {
+      margin-top: 28px;
+      font-size: 18px;
+    }
+  }
+
+  #front-img{
+    width: 50%;
+    // width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .top-right {
+    position: absolute;
+    top: -12px;
+    right: 6px;
+    background: #f91a0f;
+    width: 26px;
+    height: 26px;
+    line-height: 29px;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+    // .more-padding{
+    //     padding-bottom:50px;
+    //   }
+    
+    //   .current_index {
+    //     position: absolute;
+    //     top: 70px;
+    //     right: 12px;
+    //     z-index: 2;
+    //     background-color: rgba(0, 0, 0, 0.72);
+    //     color: #fff;
+    //     padding: 8px;
+    //     border-radius: 8px;
+    //     margin: 0;
+    //   }
+    //   .product_imgs {
+    //     ion-slides:first-child {
+    //       .swiper-pagination.hide.swiper-pagination-clickable.swiper-pagination-bullets {
+    //         display: block !important;
+    //       }
+    //     }
+    //     img {
+    //       width: 100%;
+    //     object-fit: contain;
+    //     height: 430px;
+    //     object-position: top;
+    //     }
+    //   }
+    //   .payment_area {
+    //     ion-item.item {
+    //       ion-avatar {
+    //         display: flex;
+    //         align-items: center;
+    //         img {
+    //           border-radius: 50%;
+    //           overflow: hidden;
+    //           width: 26px;
+    //           height: 26px;
+    //         }
+    //       }
+    //     }
+    //   }
+    //   @for $i from 1 through 16 {
+    //     .product_details:nth-child(#{$i}n) {
+    //       animation-delay: #{$i * 0.05}s;
+    //     }
+    //   }
+    
+    //   .reg_price{
+    //     font-weight: 400;
+    //     font-size: 15px;
+    //     text-decoration: line-through;
+    //     color: grey;
+    //   }
+    
+    //   .discount{
+    //     font-weight: 600;
+    //     font-size: 14px;
+    //     padding-left: 10px;
+    //     color: green;
+    //   }
+}

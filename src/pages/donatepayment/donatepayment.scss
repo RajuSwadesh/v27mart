@@ -1,0 +1,118 @@
+page-donatepayment {
+  .scroll-content {
+    .card-payment {
+      padding: 26px 26px 15px;
+      background: #ffff;
+      box-shadow: 5px 25px 30px -25px rgba(34,34,34,.25);
+      h4 {
+        font-size: 1.7rem;
+        font-weight: 400;
+        padding-bottom: 7px;
+      }
+      .card-details {
+        background: #182738;
+        padding: 10px;
+        border-radius: 6px;
+        input {
+          width: 100%;
+          border: none;
+          padding: 8px ;
+          border-radius: 4px;
+          background: #54616f;
+          color: #fff;
+          text-transform: uppercase;
+          font-size: 1.2rem;
+          margin: 1px 0;
+          &::placeholder {
+            color: #a7a7a7;
+          }
+        }
+      }
+      .card-footer {
+        padding: 12px 0 0;
+        ion-checkbox {
+          vertical-align: middle;
+          margin-right: 2px;
+        }
+        button {
+          float: right;
+          background: transparent;
+          height: auto;
+          box-shadow: inherit;
+          padding: 0;
+          span {
+            color: #0ec0ed;
+          }
+        }
+      }
+    }
+    .paymentgate{
+      padding: 30px 26px 0;
+      background: #fff;
+      margin: 15px 0;
+      box-shadow: 5px 25px 30px -25px rgba(34,34,34,.25);
+      h4 {
+        font-size: 1.7rem;
+        font-weight: 400;
+        padding-bottom: 7px;
+        span {
+          button {
+            float: right;
+            background: transparent;
+            height: auto;
+            box-shadow: inherit;
+            padding: 0;
+            span {
+              color: #0ec0ed;
+            }
+          }
+        }
+      }
+      ion-list {
+        padding: 0 0 0 2px;
+        margin-bottom: 0!important;
+        ion-item {
+          padding-left: 0!important;
+          ion-avatar {
+            margin: 8px 11px 8px 0!important;
+            img {
+              width: 35px!important;
+              height: 35px!important;
+            }
+          }
+          .item-inner {
+            padding-left: 0!important;
+            border-bottom: none!important;
+            ion-label {
+              color: #000;
+              h2 {
+                font-size: 1.5rem!important;
+              }
+            }
+          }
+        }
+      }
+      .list-payment {
+        ul {
+          padding-left: 0;
+          text-align: center;
+          li {
+            display: inline-block;
+            width: 18%;
+            text-align: center;
+            img {
+              border-radius: 50%;
+              width: 30px;
+              height: 30px;
+            }
+            h2 {
+              margin: 8px 0;
+              font-size: 14px;
+              color: #2d2d2d;
+            }
+          }
+        }
+      }
+    }
+  }
+}

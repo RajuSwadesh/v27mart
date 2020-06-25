@@ -1,0 +1,57 @@
+<ion-header mode="md">
+
+  <ion-navbar mode="md" color="primary">
+
+    <ion-title mode="ios" text-capitalize="">Cart</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div *ngIf="cartDataLength==0" id="no-data-cart" class="animated fadeInUp">
+    <img src="assets/imgs/empty-whishlist-icon.png"/>
+    <p style="font-weight: bolder;
+      font-size: 18px;
+      color: #545353;">Cart Is Empty</p>
+      <p>Looks like you have no items in your shopping cart</p>
+      <button ion-button (click)="shop()" >Continue Shopping</button>
+  </div>
+
+  <div class="product_details" *ngIf="cartDataLength>0">
+    <ion-row no-padding="" *ngFor="let Item of cartData">
+
+      <ion-col style="max-width: 120px;padding-left: 0">
+        <img [src]="Item.product_image.small">
+        <div class="product_value">
+          <button ion-button="" small icon-only="" clear (tap)="UpdateCart(Item.cart_id, 0)">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+          <input type="number" value="{{Item.qty}}" id="QTY{{Item.cart_id}}">
+          <button ion-button="" small icon-only="" clear (tap)="UpdateCart(Item.cart_id, 1)">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </div>
+      </ion-col>
+
+      <ion-col class="description">
+        <h4>{{Item.product_title}}</h4>
+        <div class="price_area">
+          <p style="font-size: 15px;">&#8377; {{Item.total_cart_price}}<span class="no-discount" *ngIf="Item.discount_amount==0">No Discount</span></p>
+          <!-- <h6>$120</h6>
+          <small>39%</small> -->
+        </div>
+        <p class="rmv-btn" (click)="remove(Item.cart_id)"><ion-icon name="ios-trash"></ion-icon>Remove</p>
+      </ion-col>
+
+    </ion-row>
+  </div>
+
+</ion-content>
+
+<ion-footer class="animated fadeInUp" no-border="" *ngIf="cartDataLength>0">
+  <button ion-button="" full mode="ios" no-margin="" (tap)="checkout()">
+    Checkout <span style="margin-left:6px;">with <span style="font-weight: 600;">{{totalPrice}}/-</span> </span>
+  </button>
+</ion-footer>

@@ -1,0 +1,31 @@
+<!-- <ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Classified Product Detail</ion-title>
+  </ion-navbar>
+</ion-header> -->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Classfied Product Details</ion-title>
+    <!-- <ion-buttons right="" style="margin-right: 8px" *ngIf="type=='my'">
+      <button ion-button clear icon-only="" style="font-size: 15px;" (click)="update()">
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-icon *ngIf="apiToken != user_api_token" (tap)="chat2(mobileNo)" name="chatbubbles" style="float: right;color:green;font-size:30px;margin-right:12px;"></ion-icon>
+  <div class="donation-info" *ngFor="let inf of infos ">
+    <img *ngIf="inf.field_id == 'image'" [src]="inf.imageUrl" id="front-img">
+    <h6 *ngIf="inf.field_id != 'image'"><span>{{inf.field_details.label}} :</span> {{inf.field_value}} </h6>
+  </div>
+  <p style="float:right;"><ion-icon ios="ios-share-alt" md="md-share-alt" (click)="shareTo(infos,proid)" style="font-size: 30px;color:blue;margin-left:-25px;"></ion-icon></p>
+</ion-content>
+<!-- <ion-content>
+      <div class="product_details animated fadeInUp" *ngFor="let inf of infos ">
+        <h4>{{inf.field_details.label}}</h4>
+        <p *ngIf="inf.field_id != 'image' || inf.field_id != 'images'">{{inf.field_value}}</p>
+        <h4 *ngIf="inf.field_id == 'image'">Image</h4>
+        <p *ngIf="inf.field_id == 'image'"><img style="height:150px;" src="{{inf.imageUrl}}" alt="images"></p>
+      </div>
+</ion-content> -->

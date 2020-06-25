@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons left (click)="dismiss()">
+      <button ion-button icon-left="">
+        <ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-searchbar placeholder="Search products, brands..." (ionInput)="search($event)" [(ngModel)]="Keyword" (ionCancel)="onCancel($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <!--  <ion-list *ngIf="showList">
+      <ion-item *ngFor="let item of items" no-padding="">
+        {{ item }}
+      </ion-item>
+    </ion-list>-->
+
+  <!-- <ion-list *ngIf="showList" no-margin="" class="suggested_item" inset>
+    <ion-item o-padding="" *ngFor="let item of items" no-lines="">
+      {{ item }}
+    </ion-item>
+  </ion-list> -->
+
+  <!-- <ion-list-header mode="ios">Recent Search</ion-list-header> -->
+
+  <ion-list no-lines="">
+    <p *ngIf="product_length==0 && classified_product_length==0 && products!= undefined" style="text-align: center;">No Products Found</p>
+
+    <ion-item no-lines="" *ngFor="let item of Products" (tap)="deatils(item.url)">
+      <ion-avatar item-start>
+        <img *ngIf="item.product_image!= undefined" [src]="item.product_image.original" style="object-fit: contain;"/>
+      </ion-avatar>
+     {{item.product_title}}
+    </ion-item>
+
+    <ion-item no-lines="" *ngFor="let item2 of ClassifiedProducts | slice:0:1;" (tap)="classifiedDeatils(productId)">
+      <ion-avatar item-start *ngIf="item2.imageUrl != false" >
+        <img [src]="item2.imageUrl" style="object-fit: contain;"/>
+      </ion-avatar>
+      {{item2.field_value }}
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

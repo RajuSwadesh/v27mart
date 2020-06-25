@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Filter</ion-title>
+    <ion-buttons right="" style="margin-right: 8px" (click)="close()">
+        <button ion-button clear icon-left="" color="extralight">
+          <ion-icon name="close" style="font-size: 30px;
+          font-weight: bold;"></ion-icon>
+        </button>
+   </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<ion-row no-padding="">
+  <ion-col col-3 no-padding="">
+    <ion-segment [(ngModel)]="filtermodel" mode="wp">
+        <ion-segment-button value="price" mode="wp">
+            Price
+          </ion-segment-button>
+      <ion-segment-button mode="wp" *ngFor="let item of Filters" value="{{item.name}}" (ionSelect)="selectedsegment(item)">
+        {{item.name}}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-col>
+
+  <ion-col col-9 [ngSwitch]="filtermodel" no-padding="">
+      <ion-list *ngSwitchCase="'price'" no-border="">
+          <ion-list-header mode="md" padding-horizontal="">
+            <div class="value">
+              <small>Min</small>
+              <input type="tel" ngModel="Rs.{{price.lower}}">
+            </div>
+            <div class="value">
+              <small>Max.</small>
+              <input type="tel" ngModel="Rs.{{price.upper}}">
+            </div>
+          </ion-list-header>
+          <ion-item no-lines="" no-padding="">
+            <ion-range [(ngModel)]="price" dualKnobs="true" [min]="min" [max]="max" mode="ios"></ion-range>
+          </ion-item>
+        </ion-list>
+
+    <div *ngFor="let item of Filters">
+      <ion-list *ngSwitchCase="item.name">
+        <ion-item no-lines="" *ngFor="let val of item.values_array;let i=index;">
+          <ion-label>{{val}}</ion-label>
+          <ion-checkbox (ionChange)="selectedCheckbox(item,val)" [checked]="getChecked(val)"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-col>
+
+</ion-row>
+</ion-content>
+<ion-footer>
+  <ion-footer class="animated fadeInUp">
+    <button ion-button="" full mode="ios" no-margin="" (tap)="dismiss()">
+      Search
+    </button>
+  </ion-footer>
+</ion-footer>

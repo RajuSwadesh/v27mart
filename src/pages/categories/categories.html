@@ -1,0 +1,150 @@
+<ion-header mode="md">
+
+    <ion-toolbar mode="md" color="primary">
+
+    <ion-buttons left="" style="margin-left: 6px" menuToggle="">
+      <button ion-button clear icon-only="">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title mode="ios" text-capitalize="">V27 mart</ion-title>
+
+    <ion-buttons right="" style="margin-right: 8px" (click)="search()">
+      <button ion-button clear icon-only="">
+        <ion-icon name="ios-search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons right="" (tap)="cart()" style="margin-right: 8px">
+      <button ion-button clear icon-only="">
+        <ion-icon name="ios-cart-outline"></ion-icon>
+        <ion-badge item-end color="danger">{{total_cart_item}}</ion-badge>
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content >
+
+  <div class="slider_wrapper">
+    <ion-slides *ngIf="sliderList && sliderList.length" pager autoplay="5000" loop="true" speed="500">
+      <ion-slide *ngFor="let banner of sliderList">
+        <img src="{{banner.banner_image.url}}" alt="">
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+
+  <div class="top-fixed">
+      <ion-row id="row1">
+        <!--<ion-col col-4="" class="animated fadeInUp" (click)="gotoexchange()">-->
+          <!--<div class="button_wrapper">-->
+            <!--<img src="assets/imgs/lineicon/ic_exchange.svg"/>-->
+            <!--<h4>Exchange Goods</h4>-->
+          <!--</div>-->
+        <!--</ion-col>-->
+          <!--<ion-col col-4="" class="animated fadeInUp" (click)="gotobidding()">-->
+              <!--<div class="button_wrapper">-->
+                <!--<img src="assets/imgs/lineicon/ic_auction.svg"/>-->
+                <!--<h4>Bidding</h4>-->
+              <!--</div>-->
+            <!--</ion-col>-->
+
+      </ion-row>
+  </div>
+
+  <ion-grid style="padding: 0 0 8px">
+
+    <ion-row id="row">
+
+
+      <ion-col col-4="" class="animated fadeInUp" (click)="gotoDonation()">
+      <div class="button_wrapper">
+      <img src="assets/imgs/lineicon/ic_heart.svg"/>
+      <h4>Donations</h4>
+      </div>
+      </ion-col>
+
+      <ion-col col-4="" class="animated fadeInUp" (click)="gotoClassified()">
+        <div class="button_wrapper">
+          <img src="assets/imgs/lineicon/ads.svg"/>
+          <h4>Classified</h4>
+        </div>
+      </ion-col>
+
+      <ion-col col-4="" class="animated fadeInUp"  *ngFor="let cat of categoryList"  (click)="gotoDetail(cat)">
+        <div class="button_wrapper">
+          <img [src]="cat.image_path">
+          <h4>{{cat.name}}</h4>
+        </div>
+      </ion-col>
+      <div id="gradient" *ngIf="!visible" (tap)="categoryshowhide()"></div>
+
+    </ion-row>
+    <button ion-button="" small icon-only="" (tap)="categoryshowhide()" class="hideshow_btn" mode="ios"
+            color="extralight">
+      <ion-icon [name]="visible ? 'ios-arrow-up' :'ios-arrow-down'"></ion-icon>
+    </button>
+
+  </ion-grid>
+
+  <div padding-horizontal="" *ngIf="featured_products.length>0">
+    <div class="product_details">
+      <h4>Featured Products
+        <button ion-button="" small clear mode="ios" text-capitalize="" no-margin="" (click)="viewAll('featured')">
+          View All
+        </button>
+      </h4>
+      <ion-slides slidesPerView="2.1" spaceBetween="8">
+        <ion-slide *ngFor="let item of featured_products">
+          <div class="product_wrapper">
+            <img [src]="item.product_image.original" style="height: 150px;object-fit: contain;">
+            <h4>{{item.product_title}}</h4>
+            <div class="price_area">
+              <h3>&#x20B9;{{item.sale_price}}</h3>
+              <h6 *ngIf="item.regular_price>item.sale_price">{{item.regular_price}}</h6>
+              <small *ngIf="item.regular_price>item.sale_price">{{calculateDiscount(item)}}%</small>
+            </div>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+
+  <div padding-horizontal="" *ngIf="new_arrival_products.length>0">
+    <div class="product_details">
+      <h4>New Arrival Products
+        <button ion-button="" small clear mode="ios" text-capitalize="" no-margin="" (click)="viewAll('new_arrival')">
+          View All
+        </button>
+      </h4>
+      <ion-slides slidesPerView="2" spaceBetween="6">
+        <ion-slide  *ngFor="let item of new_arrival_products"  (tap)="deatils(item.url)">
+          <div class="product_wrapper">
+            <img [src]="item.product_image.original" style="height: 150px;object-fit: contain;">
+            <h4>{{item.product_title}}</h4>
+            <div class="price_area">
+              <h3>&#x20B9;{{item.sale_price}}</h3>
+              <h6 *ngIf="item.regular_price>item.sale_price">{{item.regular_price}}</h6>
+            </div>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+
+</ion-content>
+
+<!-- <ion-content *ngIf="fetchData==false">
+  <div class="slider_wrapper">
+    <ion-slides pager>
+      <ion-slide *ngFor="let banner of sliderList">
+        <img src="" alt="">
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content> -->

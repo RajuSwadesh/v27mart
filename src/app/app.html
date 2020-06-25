@@ -1,0 +1,88 @@
+<ion-menu [content]="content" id="menu" (ionOpen)="menuOpened()">
+    <ion-content>
+      <ion-list>
+        <div class="first_child">
+          <button ion-item menuClose no-padding="" (click)="profile()">
+            <img [src]="proPic" alt="" *ngIf="proPic">
+            <h4 *ngIf="name">{{name}}</h4>
+          </button>
+        </div>
+        <div class="middle_child">
+          <button ion-item menuClose (tap)="home()">
+                <ion-avatar item-start>
+                  <img src="assets/imgs/home.svg">
+                </ion-avatar>
+                <h3>Home</h3>
+          </button>
+
+          <button ion-item menuClose (tap)="goToProfile()">
+                  <ion-avatar item-start>
+                    <img src="assets/imgs/profile.svg">
+                  </ion-avatar>
+                  <h3>Profile</h3>
+          </button>
+          <button ion-item menuClose (tap)="goToSellerregistration()">
+            <ion-avatar item-start>
+              <img src="assets/imgs/lineicon/sell_menu.svg">
+            </ion-avatar>
+            <h3>Sell</h3>
+          </button>
+          <!-- <button ion-item menuClose>
+            <ion-avatar item-start>
+              <img src="assets/imgs/lineicon/chat_menu.svg">
+            </ion-avatar>
+            <h3>Chat</h3>
+          </button> -->
+
+          <button ion-item menuClose (tap)="wishlist()">
+              <ion-avatar item-start>
+                <img src="assets/imgs/lineicon/wishstore.svg">
+              </ion-avatar>
+              <h3>My WishList</h3>
+            </button>
+
+          <!--<button ion-item menuClose (click)="goToClassifiedAds()">-->
+            <!--<ion-avatar item-start>-->
+              <!--<img src="assets/imgs/lineicon/my-ad.svg">-->
+            <!--</ion-avatar>-->
+            <!--<h3>Classified Ads</h3>-->
+          <!--</button>-->
+
+          <button ion-item menuClose (click)="goToMyClassifiedAds()">
+            <ion-avatar item-start>
+              <img src="assets/imgs/lineicon/my-ad.svg">
+            </ion-avatar>
+            <h3>My Classified Ads</h3>
+          </button>
+
+          <button ion-item menuClose (click)="goToMyDonation()">
+            <ion-avatar item-start>
+              <img src="assets/imgs/lineicon/charity.svg">
+            </ion-avatar>
+            <h3>My Donations</h3>
+          </button>
+
+
+          <!--<button ion-item menuClose (tap)="wishstore()">-->
+            <!--<ion-avatar item-start>-->
+              <!--<img src="assets/imgs/lineicon/wishstore.svg">-->
+            <!--</ion-avatar>-->
+            <!--<h3>WishStore</h3>-->
+          <!--</button>-->
+
+        </div>
+
+        <div class="last_child">
+          <button ion-item menuClose (tap)="contactUs()">
+            <h3>Contact Us</h3>
+          </button>
+          <button ion-item menuClose (tap)="logout()">
+            <h3>Sign out</h3>
+          </button>
+        </div>
+
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-nav id="nav" #content [root]="rootPage"></ion-nav>

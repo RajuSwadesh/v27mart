@@ -1,0 +1,50 @@
+.product_details {
+    border-radius: 6px;
+    .address_wrapper {
+      display: flex;
+      overflow: auto;
+      ion-card.card {
+        min-width: 70%;
+        border: 1px solid #ececec;
+        margin-right: 18px;
+        padding: 8px;
+        border-radius: 8px;
+      }
+      @for $i from 1 through 20 {
+        .card:nth-child(#{$i}n) {
+          animation-delay: #{$i * 0.05}s;
+        }
+      }
+    }
+
+    .form_area{
+      ion-item.item{
+        border: 1px solid #ececec;
+        border-radius: 6px;
+        margin-bottom: 16px;
+        font-size: 13px;
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+      input {
+        height: 47px;
+        border: 1px solid #ececec;
+        border-radius: 6px;
+        padding: 16px;
+        margin-bottom: 16px;
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+      ::placeholder{
+        color: #999999;
+      }
+      @for $i from 1 through 20 {
+        input:nth-child(#{$i}n) {
+          animation-delay: #{$i * 0.05}s;
+        }
+      }
+
+    }
+  }

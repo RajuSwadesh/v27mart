@@ -1,0 +1,24 @@
+page-paytype {
+  ion-list.list {
+    margin: 8px 0;
+    .item {
+      filter: grayscale(1);
+      .item-inner {
+        display: flex;
+        flex-direction: row-reverse;
+        ion-radio.radio {
+          opacity: 0;
+          width: 0;
+        }
+      }
+    }
+    .item-radio-checked {
+      filter: grayscale(0);
+    }
+  }
+  .next_btn{
+    float: right;
+    margin-right: 16px;
+    margin-bottom: 16px;
+  }
+}

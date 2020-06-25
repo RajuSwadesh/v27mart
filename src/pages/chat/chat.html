@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Chat</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="content-wrapper">
+    <div class="chat-list wow fadeInUp animated" *ngFor="let inf of infos">
+      <ion-row>
+        <ion-col col-2>
+          <img src="assets/imgs/dummy-user.png" alt="">
+        </ion-col>
+        <ion-col col-5>
+          <h5>{{inf.name}}</h5>
+        </ion-col>
+        <ion-col col-5>
+          <button ion-button (tap)="chat2(inf)" color="light"><ion-icon name="chatboxes" style="color:green;"></ion-icon></button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

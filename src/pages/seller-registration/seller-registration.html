@@ -1,0 +1,84 @@
+<!--
+  Generated template for the SellerRegistrationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding *ngIf="registered=='true'">
+    <div class="upper-sec" style="margin-top: 50px;display: block;">
+        <img src="assets/imgs/sell-signup.png"/>
+        <p></p>
+        <p class="p2">Go To seller Portal</p>
+    </div>
+
+    <div style="text-align: center;">
+      <button ion-button (click)="goToSeller()">Continue</button>
+    </div>
+</ion-content>
+
+<ion-content padding *ngIf="registered=='false'">
+  <!-- <div class="back">
+    <ion-icon name="md-arrow-back" (click)="back()"></ion-icon>
+  </div> -->
+  <div class="upper-sec">
+    <img src="assets/imgs/sell-signup.png"/>
+    <p class="p1">Want To Sell?</p>
+    <p class="p2">Make a profile as Seller</p>
+  </div>
+
+  <div class="form-area">
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="nick_name" placeholder="Nick Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-input type="text" [(ngModel)]="business_name" placeholder="Business Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-input type="text" [(ngModel)]="mobile" placeholder="Mobile"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-input type="text" [(ngModel)]="address1" placeholder="Address"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-input type="text" [(ngModel)]="city" placeholder="City"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="number" [(ngModel)]="pin" placeholder="Postal Pin"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-input type="tel" [(ngModel)]="landline" placeholder="Landline"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <textarea [(ngModel)]="about" placeholder="About"></textarea>
+    </ion-item>
+
+    <ion-item>
+        <!-- <ion-label position="stacked">Add Attachment</ion-label> -->
+        <!-- <span class="hiddenFileInput" style="background: url(assets/imgs/attach.png);">
+          <input type="file" name="theFile" #input  multiple id="upfile" (change)="changeListener($event)"/>
+        </span> -->
+        <p style="margin-bottom: 14px;">Documents</p>
+        <input type="file" name="theFile" #input  id="upfile" (change)="changeListener($event)" accept="image/*"/>
+        <span class="itemAdd" style="position: relative;top: -26px;right: -42px;" *ngIf="total_file>0">{{total_file}} items added</span>
+        <span class="itemAdd" style="position: relative;top: -26px;right: -42px;" *ngIf="total_file==0">No file choosen</span>
+      </ion-item>
+
+    <button ion-button block (click)="register()">Register</button>
+  </div>
+
+
+
+</ion-content>

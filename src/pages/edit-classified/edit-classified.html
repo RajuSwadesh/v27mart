@@ -1,0 +1,123 @@
+<ion-header mode="md">
+  <ion-navbar  mode="md" color="primary">
+    <ion-title mode="ios" text-capitalize="">Edit Detail</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <!-- <ion-item>
+      <ion-label floating>Category</ion-label>
+      <ion-select [(ngModel)]="category" (ionChange)="selectedVal(item)">
+        <span *ngFor="let item of category_list">
+            <ion-option  value="{{item.id}}">
+              {{item.name}}
+            </ion-option>
+              <ion-option *ngFor="let item2 of item.subCategories" value="{{item.id+','+item2.id}}">
+                &nbsp; &nbsp; - - {{item2.name}}
+              </ion-option>
+        </span>
+      </ion-select>
+    </ion-item> -->
+
+    <div class="custom" *ngFor="let subfield of fieldDetails;let j=index">
+      <div class="subcustom"  *ngIf="subfield.field_details.field_type == 'Text'">
+       <label>{{subfield.field_details.label}}</label>
+       <ion-input type="{{subfield.field_details.field_type}}" [(ngModel)]="subfield.field_value"></ion-input>
+      </div>
+
+      <div *ngIf="subfield.field_details.field_type == 'Checkbox'" class="input_fields">
+        <b>{{subfield.field_details.label}}</b>
+           <div class="item" *ngFor="let arr of subfield.field_details.checkValue;let i=index" (click)="getCheck(arr,subfield.field_details)">
+             <label> <span>{{arr.field_values}}</span>
+             <input class="mycheck" *ngIf="arr.field_values == checkArr[i]" type="checkbox" checked name="{{subfield.field_details.name}}" id="{{subfield.field_details.name}}" value="{{arr.field_values}}">
+             <input class="mycheck" *ngIf="arr.field_values != checkArr[i]" type="checkbox" name="{{subfield.field_details.name}}" id="{{subfield.field_details.name}}" value="{{arr.field_values}}">
+            </label>
+           </div>
+      </div>
+
+      <!-- <div>
+        <input type="checkbox" name="ll" value="gh"> 
+        <input type="checkbox" name="ll" value="hh"> 
+      </div> -->
+
+      <div *ngIf="subfield.field_details.field_type == 'Radio'" class="input_fields">
+        <b>{{subfield.field_details.label}}</b>
+           <div class="item" *ngFor="let arr1 of subfield.field_details.genderValue;" (change)="getGender(arr1)">
+             <label> <span>{{arr1.gender_values}}</span>
+             <input *ngIf="arr1.gender_values == subfield.field_value" checked type="radio" name="{{subfield.field_details.name}}" id="{{subfield.field_details.name}}" [value]="arr1.gender_values">
+             <input *ngIf="arr1.gender_values != subfield.field_value" type="radio" name="{{subfield.field_details.name}}" id="{{subfield.field_details.name}}" [value]="arr1.gender_values">
+            </label>
+           </div>
+      </div>
+
+      <div class="subcustom"  *ngIf="subfield.field_details.field_type == 'Number'">
+        <label>{{subfield.field_details.label}}</label>
+        <ion-input type="{{subfield.field_details.field_type}}" [(ngModel)]="subfield.field_value"></ion-input>
+       </div>
+
+       <div class="subcustom"  *ngIf="subfield.field_details.field_type == 'Date'">
+        <label>{{subfield.field_details.label}}</label>
+        <ion-input type="{{subfield.field_details.field_type}}" [(ngModel)]="subfield.field_value"></ion-input>
+       </div>
+
+       <div class="subcustom"  *ngIf="subfield.field_details.field_type == 'Textarea'">
+        <label>{{subfield.field_details.label}}</label>
+        <ion-textarea [(ngModel)]="subfield.field_value" class="txtarea"></ion-textarea>
+       </div>
+
+      <ion-item no-lines *ngIf="subfield.field_id == 'image'">
+        <span item-start>Choose Image <span style="color:grey;font-size:13px;"></span></span><span item-end class="cam" (click)="chooseImage()" *ngIf="donation_img_length>0"><ion-icon name="camera"></ion-icon></span><br/>
+      </ion-item>
+
+      <ion-row *ngIf="editImg">
+        <ion-col col-4 *ngIf="subfield.field_id == 'image' && subfield.imageUrl != false">
+          <div class="container">
+            <img [src]="subfield.imageUrl"/>
+            <div class="top-right" (click)="remove(i,subfield.field_id,subfield.field_value)"><ion-icon name="close"></ion-icon></div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-item no-lines *ngIf="subfield.field_id == 'images'">
+        <span item-start>Choose Images <span style="color:grey;font-size:13px;"></span></span><span item-end class="cam" (click)="chooseImages()" *ngIf="donation_img_length>0"><ion-icon name="camera"></ion-icon></span><br/>
+      </ion-item>
+
+      <ion-row *ngIf="subfield.field_id == 'images' && subfield.imageUrl != false">
+        <ion-col col-4 *ngFor="let img of allImg">
+          <div class="container">
+            <img [src]="img"/>
+            <div class="top-right" (click)="remove(i,subfield.field_id,img)"><ion-icon name="close"></ion-icon></div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+      <ion-row *ngIf="showSingleImg">
+        <ion-col col-4 *ngFor="let item of donation_images;let i=index">
+          <div class="container">
+            <img style="width:100%;height:112px;" [src]="item"/>
+            <div class="top-right" (click)="removeSingleImage(i)"><ion-icon name="close"></ion-icon></div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="showMultipleImg">
+        <ion-col col-4 *ngFor="let item2 of multipleImages;let i=index">
+          <div class="container">
+            <img style="width:100%;height:112px;" [src]="item2"/>
+            <div class="top-right" (click)="removeMultiImage(i)"><ion-icon name="close"></ion-icon></div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <div class="custom" style="margin-top:17px;" >
+        <div class="subcustom" >
+        <label>Enter address</label>
+        <input type="text" id="GoForm"  placeholder="enter address...." [(ngModel)]="FormLocation.address">
+        </div>
+        </div>
+    <button *ngIf="product_status !='Blocked' " ion-button color="primary" full class="animated fadeInLeft" style="animation-delay: 0.6s" (tap)="donateUpdate()">Submit</button>
+  </ion-list>
+</ion-content>

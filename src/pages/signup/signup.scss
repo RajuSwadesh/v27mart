@@ -1,0 +1,125 @@
+page-signup {
+  .scroll-content {
+    background-color: map_get($colors, bg);
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background-color: #fbfbfb;
+      .top_area {
+        flex: 2;
+        display: flex;
+        min-height: 145px;
+        background-size: cover;
+        position: relative;
+        background-repeat: no-repeat;
+        background-position: center center;
+        .abstract_shape {
+          //background-color: map_get($colors, primary);
+          background: #61c3e7; /* Old browsers */
+          background: -moz-linear-gradient(left, #61c3e7 0%, #0eb5f3 100%); /* FF3.6-15 */
+          background: -webkit-linear-gradient(left, #61c3e7 0%, #0eb5f3 100%); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(to right, #61c3e7 0%, #0eb5f3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8cc63f', endColorstr='#4caf50',GradientType=1 ); /* IE6-9 */
+          position: absolute;
+          top: -410px;
+          left: 0;
+          right: 0;
+          bottom: -60px;
+          opacity: 0.9;
+          transform: skewY(-19deg);
+        }
+        &:before, &:after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background-image: url(../assets/imgs/pattern.svg);
+          background-size: 100%;
+          animation: move 20s infinite linear;
+          opacity: 0.5;
+          z-index: 1;
+        }
+
+        &:before {
+          right: 100%;
+        }
+
+        @keyframes move {
+          from {transform: translateX(  0%);}
+          to {transform: translateX(100%);}
+        }
+        img {
+          max-width: 80px;
+          margin: auto;
+          transition: ease-in-out;
+          animation-duration: 1s;
+          animation-fill-mode: both;
+          animation-name: zoomIn;
+          z-index: 1;
+        }
+      }
+      .bottom_area {
+        flex: 4;
+        padding: 0 16px;
+        position: relative;
+        bottom: 30px;
+        .form_area {
+          box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+          padding: 16px;
+          position: relative;
+          z-index: 1;
+          background-color: #fff;
+          border-radius: 12px;
+          overflow: hidden;
+          ion-list {
+            ion-list-header {
+              .label{
+                margin-bottom: 0;
+              }
+              h2 {
+                font-weight: bold;
+                color: map_get($colors, dark);
+              }
+            }
+            ion-item {
+              .item-inner {
+                padding-right: 0;
+                input {
+                  width: 100%;
+                  margin-right: 0;
+                }
+              }
+            }
+            ion-select.select.select-ios {
+              margin-left: 10px;
+              padding-right: 15px !important;
+            }
+          }
+          .btn_area {
+            margin-top: 32px;
+            position: relative;
+            .button {
+              height: 4.2rem;
+              border-radius: 6px;
+              box-shadow: 0 3px 13px -3px map_get($colors, lightprimary);
+            }
+          }
+        }
+        .others_btn {
+          position: relative;
+          margin-top: 16px;
+          .social_btn {
+            display: flex;
+            justify-content: center;
+            .button {
+              font-size: 1.2rem;
+              width: 50%;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}

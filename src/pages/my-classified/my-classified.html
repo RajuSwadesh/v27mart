@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>My Classified Ad</ion-title>
+    <button ion-button right="" color="danger" (click)="postAd()">Post Ad</button>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="showProduct">
+  <div class="donate-list" *ngFor="let item of donation_list">
+    <ion-row>
+        <ion-col col-3 (click)="donationdetails(item.id,item.category_names[0],item.in_category)" *ngIf="item.image != false">
+          <img [src]="item.image" style="height: 100px;">
+        </ion-col>
+        <ion-col col-7 (click)="donationdetails(item.id,item.category_names[0],item.in_category)">
+          <!-- <h4>ID: {{item.id}}</h4> -->
+          <p><b>Category Name:</b> {{item.category_names[0]}}</p>
+          <!-- <p>{{item.product_condition}}</p> -->
+          <p><b>Status:</b> {{item.status}}</p>
+          <!-- <p>In Stock: {{item.stock}}</p> -->
+          <p><b>Expire On:</b> {{item.expire_date}}</p>
+        </ion-col>
+      <ion-col col-2>
+        <button ion-button="" icon-only="" small (click)="deleteItem(item.id)" outline mode="ios" color="danger">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </div>
+ </div>
+ <div *ngIf="noProduct">
+  <p class="blank-product">No product is available</p>
+ </div>
+  <ion-infinite-scroll (ionInfinite)="moreProducts($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

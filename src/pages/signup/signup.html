@@ -1,0 +1,52 @@
+<ion-content>
+  <ion-header no-border="">
+    <ion-navbar transparent="" color="primary">
+
+    </ion-navbar>
+  </ion-header>
+  <div class="wrapper">
+    <div class="top_area">
+      <div class="abstract_shape"></div>
+    </div>
+    <div class="bottom_area">
+      <div class="form_area">
+        <ion-list no-margin>
+          <ion-list-header text-uppercase no-lines text-center no-margin no-padding>
+            <h2>SIGNUP</h2>
+          </ion-list-header>
+          <ion-item no-padding class="animated fadeInLeft" style="animation-delay: 0.2s" color="transparent">
+            <ion-label floating>Name</ion-label>
+            <ion-input type="text" [(ngModel)]="name"></ion-input>
+          </ion-item>
+          <ion-item no-padding class="animated fadeInLeft" style="animation-delay: 0.4s" color="transparent">
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email" [(ngModel)]="email"></ion-input>
+          </ion-item>
+
+          <ion-item no-padding class="animated fadeInLeft" style="animation-delay: 0.4s" color="transparent">
+            <ion-label floating>Phone</ion-label>
+            <ion-input type="phno" [(ngModel)]="phno"></ion-input>
+          </ion-item>
+
+          <ion-item no-padding class="animated fadeInLeft" style="animation-delay: 0.6s" color="transparent">
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" [(ngModel)]="password"></ion-input>
+          </ion-item>
+
+          <ion-item no-padding class="animated fadeInLeft" style="animation-delay: 0.6s" color="transparent">
+            <ion-label floating>Confirm Password</ion-label>
+            <ion-input type="password" [(ngModel)]="c_password"></ion-input>
+          </ion-item>
+        </ion-list>
+        <div class="btn_area">
+          <button ion-button color="primary" full class="animated fadeInLeft" style="animation-delay: 0.8s" (click)="signUp()">Create Account
+          </button>
+        </div>
+      </div>
+    </div>
+    <button ion-button="" clear small color="lightdark" text-capitalize="">
+      Terms and Conditions
+    </button>
+
+  </div>
+</ion-content>

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Donation Details</ion-title>
+    <ion-buttons right="" style="margin-right: 8px" *ngIf="type=='my'">
+      <button ion-button clear icon-only="" style="font-size: 15px;" (click)="update()">
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div class="donation-info" *ngIf="donation_detail">
+    <img [src]="donation_detail.small_image[0]" id="front-img">
+    <h4>{{donation_detail.product_title}}</h4>
+    <h6>Category : {{category}}</h6>
+    <p style="float:right;"><ion-icon ios="ios-share-alt" md="md-share-alt" (click)="shareTo(donation_detail)" style="font-size: 25px;color:blue;margin-left:-25px;"></ion-icon></p>
+    <p class="stock in" *ngIf="donation_detail.stock>0">In stock 
+    </p>
+    <p class="stock out" *ngIf="donation_detail.stock==0">Out of stock</p>
+    <p><span>Description :</span>{{donation_detail.description}}</p>
+    <h6><span>Product Condition :</span> {{donation_detail.product_condition}} </h6>
+    <h6><span>Contact person :</span>{{donation_detail.contact_person}}</h6>
+    <h6><span>Contact number :</span>{{donation_detail.contact_number}} <a href="tel:{{donation_detail.contact_number}}"style="margin-left: 10px;"><ion-icon style="font-size: 20px;color: green;" ios="ios-call" md="md-call" ></ion-icon></a></h6>
+    <h6><span>Address :</span> {{donation_detail.address}} </h6>
+    <h6><span>City :</span> {{donation_detail.city}} </h6>
+    <h6><span>Pin :</span> {{donation_detail.pin_code}} </h6>
+
+
+    <h5 *ngIf="donation_detail.small_image.length>1">More Pictures</h5>
+    <ion-row  *ngIf="donation_detail.small_image.length>1">
+      <ion-col col-4 *ngFor="let item of donation_detail.small_image | slice:1">
+        <div class="container">
+        <img [src]="item">
+        <div class="top-right" (click)="remove(item)" *ngIf="type!='all'"><ion-icon name="close"></ion-icon></div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

@@ -1,0 +1,42 @@
+page-my-classified {
+  ion-header {
+    .button {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      height: auto;
+    }
+  }
+  .scroll-content {
+    background: #f7f7f7;
+  }
+  .donate-list {
+    background: #fff;
+    border-radius: 4px;
+    padding-top: 4px;
+    padding-left: 4px;
+    margin-bottom: 16px;
+    box-shadow: 0 7px 8px -7px #d4d4d4;
+    h4 {
+      font-size: 15px;
+      margin-bottom: 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    p {
+      margin: 6px 0;
+      font-size: 13px;
+    }
+  }
+  .blank-product{
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 80px;
+    text-transform: uppercase;
+  }
+}

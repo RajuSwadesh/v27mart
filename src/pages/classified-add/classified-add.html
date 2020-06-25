@@ -1,0 +1,208 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Add Classified Product</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!-- <ul>
+    <li><img src="assets/imgs/donation-9.jpg"></li>
+    <li><img src="assets/imgs/donation-10.jpg"></li>
+    <li><img src="assets/imgs/donation-11.jpg"></li>
+  </ul> -->
+
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Category</ion-label>
+      <ion-select [(ngModel)]="category" (ionChange)="selectedVal(item)">
+        <ion-option *ngFor="let item of category_list" value="{{item.id}}" >{{item.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="category && sub_cat_section.length>0">
+      <ion-label floating>Sub Category</ion-label>
+      <ion-select [(ngModel)]="sub_category" (ionChange)="selectedVal1()">
+        <ion-option *ngFor="let item of sub_cat_section" value="{{item.id}}" >{{item.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="custom" *ngFor="let subfield of subCatField;let i=index">
+      <div class="subcustom"  *ngIf="subfield.field_type == 'Text'">
+       <label>{{subfield.label}}</label>
+       <input type="{{subfield.field_type}}" name="{{subfield.name}}" id="{{subfield.name}}"  placeholder="name....">
+      </div>
+
+      <div *ngIf="subfield.field_type == 'Checkbox'" class="input_fields">
+        <b>{{subfield.label}}</b>
+        <!-- <div class="subcustom"  *ngIf="subfield.field_type == 'Text'"> -->
+           <div class="item" *ngFor="let arr of subfield.arrayField;let i=index" (click)="getCheck(arr)">
+             <label> <span>{{arr}}</span>
+             <input class="mycheck" type="checkbox" name="{{subfield.name}}" id="{{subfield.name}}" [value]="arr">
+            </label>
+           </div>
+        <!-- </div> -->
+      </div>
+
+      <div *ngIf="subfield.field_type == 'Radio'" class="input_fields">
+        <b>{{subfield.label}}</b>
+           <div class="item" *ngFor="let arr of subfield.radioField;" (change)="getGender(arr)">
+             <label> <span>{{arr.fld}}</span>
+             <input type="radio" name="{{subfield.name}}" id="{{subfield.name}}" [value]="arr.fld">
+            </label>
+           </div>
+      </div>
+
+      <div class="subcustom"  *ngIf="subfield.field_type == 'Number'">
+        <label>{{subfield.label}}</label>
+        <input type="{{subfield.field_type}}" name="{{subfield.name}}" id="{{subfield.name}}"  placeholder="experince....">
+       </div>
+
+       <div class="subcustom"  *ngIf="subfield.field_type == 'Date'">
+        <label>{{subfield.label}}</label>
+        <input type="{{subfield.field_type}}" name="{{subfield.name}}" id="{{subfield.name}}"  placeholder="Date....">
+       </div>
+
+       <div class="subcustom"  *ngIf="subfield.field_type == 'Textarea'">
+        <label>{{subfield.label}}</label>
+        <input type="{{subfield.field_type}}" name="{{subfield.name}}" id="{{subfield.name}}"  placeholder="about....">
+       </div>
+      
+      <!-- <ion-item *ngIf="subfield.field_type == 'Text'">
+        <ion-label floating>{{subfield.label}}</ion-label>
+        <ion-input type="{{subfield.field_type}}" id="{{subfield.name}}" class="my-input" ></ion-input>
+      </ion-item>
+
+      <div *ngIf="subfield.field_type == 'Checkbox'">
+        <ion-label>{{subfield.label}}</ion-label>
+         <ion-list style="margin: 0px auto;">
+        <ion-item *ngFor="let arr of subfield.arrayField;let i=index">
+        <ion-label>{{arr}}</ion-label>
+        <ion-checkbox id="{{subfield.name}}"></ion-checkbox>
+        </ion-item>
+        </ion-list>
+      </div> -->
+
+      <!-- <div *ngIf="subfield.field_type == 'Radio'">
+        <ion-label>{{subfield.label}}</ion-label>
+        <ion-list radio-group (ngModel)="[subfield.name]" id="{{subfield.name}}" style="margin: 0px auto;">
+         <ion-item *ngFor="let arr of subfield.radioField">
+         <ion-label>{{arr.fld}}</ion-label>
+          <ion-radio [value]="arr.fld"></ion-radio>
+        </ion-item>
+      </ion-list>
+      </div> -->
+
+      
+
+      <!-- <ion-item *ngIf="subfield.field_type == 'Number'">
+        <ion-label floating>{{subfield.label}}</ion-label>
+        <ion-input type="{{subfield.field_type}}" id="{{subfield.name}}" class="my-input" placeholder="Experince..."></ion-input>
+      </ion-item> -->
+
+      <!-- <ion-item *ngIf="subfield.field_type == 'Date'">
+        <ion-label floating>{{subfield.label}}</ion-label>
+        <ion-input clearInput  type="{{subfield.field_type}}" id="{{subfield.name}}" class="my-input" placeholder="date..."></ion-input>
+      </ion-item> -->
+
+      <!-- <ion-item *ngIf="subfield.field_type == 'Textarea'">
+        <ion-label floating>{{subfield.label}}</ion-label>
+        <ion-textarea id="{{subfield.name}}" class="my-input" placeholder="About You..."></ion-textarea>
+      </ion-item> -->
+      
+
+      <ion-item no-lines *ngIf="subfield.field_type == 'Single_image'">
+        <span item-start>Choose Images <span style="color:grey;font-size:13px;"></span></span><span item-end class="cam" (click)="chooseImage()" *ngIf="donation_img_length>0"><ion-icon name="camera"></ion-icon></span><br/>
+        <!-- <span item-start>Choose Images <span style="color:grey;font-size:13px;">(Maximum 6 Images)</span></span><span item-end class="cam" (click)="chooseMultipleImage()" *ngIf="donation_img_length>0"><ion-icon name="camera"></ion-icon></span> -->
+      </ion-item>
+
+      <ion-item no-lines *ngIf="subfield.field_type == 'Multiple_image'">
+        <!-- <span item-start>Choose Images <span style="color:grey;font-size:13px;">(Maximum 6 Images)</span></span><span item-end class="cam" (click)="chooseMultipleImage()" *ngIf="donation_img_length>0"><ion-icon name="camera"></ion-icon></span> -->
+      </ion-item>
+
+      
+    </div>
+
+      <!-- <ion-item no-lines> 
+       <span item-start>Choose Images <span style="color:grey;font-size:13px;"></span></span><span item-end class="cam" (click)="chooseMultipleImage()" *ngIf="donation_img_length>0"><ion-icon name="camera"></ion-icon></span>
+     </ion-item> -->
+     <!------------------------------ Single Image -------------------------------->
+    <ion-row>
+      <ion-col col-4 *ngFor="let item of donation_images;let i=index">
+        <div class="container">
+          <img [src]="item"/>
+          <div class="top-right" (click)="remove(i)"><ion-icon name="close"></ion-icon></div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <!------------------------------ Multiple Image -------------------------------->
+    <ion-row>
+      <ion-col col-4 *ngFor="let item2 of multiple_donation_images;let i=index">
+        <div class="container">
+          <img [src]="item2"/>
+          <div class="top-right" (click)="removeImages(i)"><ion-icon name="close"></ion-icon></div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+
+    <div class="custom" style="margin-top:17px;" *ngIf="sub_cat_section.length>0">
+    <div class="subcustom" >
+    <label>Enter address</label>
+    <input type="text" id="GoForm"  placeholder="enter address...." [(ngModel)]="FormLocation.address">
+    </div>
+    </div>
+ 
+      <!-- <ion-list *ngFor="let subfield of subCatField">   
+      <ion-item *ngIf="subfield.field_type == 'Text'">
+      <ion-label floating>{{subfield.label}}</ion-label>
+      <ion-input type="{{subfield.field_type}}" [(ngModel)]="product_title" class="my-input"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="subfield.field_type == 'Radio'">
+      <ion-label floating>{{subfield.label}}</ion-label>
+      <ion-radio  value="male"></ion-radio>
+    </ion-item>
+  </ion-list> -->
+  
+<!-- <div *ngIf="sub_cat_section.length == 0">
+    <ion-item>
+      <ion-label floating>Product Title</ion-label>
+      <ion-input type="text" [(ngModel)]="product_title" class="my-input"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Description</ion-label>
+      <ion-textarea type="text" [(ngModel)]="description" class="my-input"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Stock (optional)</ion-label>
+      <ion-input type="number" [(ngModel)]="stock" class="my-input"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Product Condition (Optional)</ion-label>
+      <ion-select [(ngModel)]="product_condition">
+        <ion-option value="new">New</ion-option>
+        <ion-option value="used">Used</ion-option>
+        <ion-option value="damaged">Damaged</ion-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>Price</ion-label>
+      <ion-input type="tel" [(ngModel)]="price" class="my-input"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+      <span item-start>Choose Images <span style="color:grey;font-size:13px;">(Maximum 6 Images)</span></span><span item-end class="cam" (click)="chooseImage()" *ngIf="donation_img_length>0"><ion-icon name="camera"></ion-icon></span>
+    </ion-item>
+  </div> -->
+
+    <button ion-button color="primary" full class="animated fadeInLeft" style="animation-delay: 0.6s" (tap)="donate()" id="clickme">Submit</button>
+  </ion-list>
+</ion-content>

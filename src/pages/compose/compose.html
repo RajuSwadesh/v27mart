@@ -1,0 +1,48 @@
+<ion-header mode="md" no-border="">
+
+  <ion-navbar mode="md" color="primary">
+
+    <ion-title mode="ios" text-capitalize="">Compose</ion-title>
+
+
+    <ion-buttons right="" style="margin-right: 12px">
+      <button ion-button clear icon-only="">
+        <ion-icon name="attach"></ion-icon>
+      </button>
+    </ion-buttons>
+
+
+    <ion-buttons right="" style="margin-right: 8px">
+      <button ion-button clear icon-only="">
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div class="product_details animated fadeInUp">
+    <input type="text" placeholder="TO" (input)="getItems($event)">
+    <ion-list *ngIf="showList" class="suggested_item" inset>
+      <ion-item no-padding="" *ngFor="let item of items" no-lines="">
+        <ion-avatar item-start>
+          <img src="{{item.img}}">
+        </ion-avatar>
+        {{ item.name }}
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="product_details animated fadeInUp">
+    <input type="text" placeholder="Subject">
+  </div>
+
+  <div class="product_details animated fadeInUp">
+    <textarea rows="3" placeholder="Compose mail"></textarea>
+  </div>
+
+</ion-content>

@@ -1,0 +1,178 @@
+page-categories {
+   .top-fixed {
+     .row {
+      // border: 1px dashed #e2e2e2;
+      margin: 16px 16px 0;
+      // border-radius: 6px 6px 0 0;
+      transition: all linear 0.3s;
+      position: relative;
+      .button_wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.58);
+        padding: 16px 0;
+        border-radius: 6px;
+        img {
+          height: 30px;
+        }
+        h4 {
+          font-size: 13px;
+          font-weight: 500;
+          margin-bottom: 0;
+          text-transform: capitalize;
+          width: 100%;
+          text-align: center;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding: 0 4px;
+        }
+      }
+     }
+   }
+  .grid {
+    position: relative;
+    .row {
+      overflow: hidden;
+      height: 300px;
+      // border: 1px dashed #e2e2e2;
+      margin: 0 16px 16px;
+      // border-radius: 6px;
+      transition: all linear 0.3s;
+      position: relative;
+    }
+    .hideshow_btn {
+      height: 40px;
+      width: 40px;
+      border-radius: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 1px dashed #e2e2e2;
+    }
+    #gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(247, 247, 247, 0.65) 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(247, 247, 247, 0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(247, 247, 247, 0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6f7f7f7', GradientType=0); /* IE6-9 */
+    }
+  }
+
+  .button_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.58);
+    padding: 16px 0;
+    border-radius: 6px;
+    img {
+      height: 30px;
+    }
+    h4 {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 0;
+      text-transform: capitalize;
+      width: 100%;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0 4px;
+    }
+  }
+
+  @for $i from 1 through 80 {
+    .col:nth-child(#{$i}n) {
+      animation-delay: #{$i * 0.05}s;
+    }
+  }
+  .product_details {
+    background-color: #ffffff;
+    padding: 16px;
+    float: left;
+    width: 100%;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    h4 {
+      font-size: 14px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      button {
+        margin: 0;
+      }
+    }
+    .product_wrapper {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      background-color: rgba(255, 255, 255, 0.58);
+      padding: 16px 0;
+      border-radius: 6px;
+      img {
+        width: 100%;
+      }
+      h4 {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 0;
+        text-transform: capitalize;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0 4px;
+        text-align: left;
+      }
+      .price_area {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: 16px 0;
+        padding: 0 4px;
+        opacity:1!important;
+        h3 {
+          margin: 0;
+          font-size: 14px;
+          font-weight: 600;
+        }
+        h6 {
+          color: #797979;
+          text-decoration: line-through;
+          font-weight: normal;
+          font-size: 14px;
+          margin: 0 8px;
+        }
+        small {
+          color: map-get($colors, secondary);
+          font-size: 12px;
+          opacity:1!important;
+        }
+      }
+      .cashback {
+        background-color: map-get($colors, secondarylight);
+        padding: 4px;
+        border-radius: 4px;
+        align-self: start;
+        margin: 0 4px;
+      }
+    }
+  }
+
+}

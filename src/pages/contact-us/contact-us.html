@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Contact US</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Title</ion-label>
+      <ion-input type="text" [(ngModel)]="title" class="my-input"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Description</ion-label>
+      <ion-textarea type="text" [(ngModel)]="description" class="my-input"></ion-textarea>
+    </ion-item>
+
+    <button ion-button color="primary" full class="animated fadeInLeft" style="animation-delay: 0.6s" (tap)="sendQuery()">Submit</button>
+  </ion-list>
+</ion-content>

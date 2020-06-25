@@ -1,0 +1,137 @@
+page-exchange {
+  // .button_wrapper {
+  //   width: 100%;
+  //   display: flex;
+  //   align-items: center;
+  //   flex-direction: column;
+  //   background-color: rgba(255, 255, 255, 1);
+  //   border-radius: 6px;
+  //   overflow: hidden;
+  //   img {
+  //     width: 100%;
+  //   }
+  //   h4 {
+  //     font-size: 14px;
+  //     font-weight: 500;
+  //     margin-bottom: 0;
+  //     text-transform: capitalize;
+  //     width: 100%;
+  //     white-space: nowrap;
+  //     overflow: hidden;
+  //     text-overflow: ellipsis;
+  //     padding: 0 4px;
+  //     text-align: left;
+  //   }
+  //   .price_area {
+  //     display: flex;
+  //     align-items: center;
+  //     width: 100%;
+  //     margin: 16px 0;
+  //     padding: 0 4px;
+  //     h3 {
+  //       margin: 0;
+  //       font-weight: normal;
+  //       font-size: 16px;
+  //     }
+  //     h6 {
+  //       color: #797979;
+  //       text-decoration: line-through;
+  //       font-weight: normal;
+  //       font-size: 14px;
+  //       margin: 0 8px;
+  //     }
+  //     small {
+  //       color: map-get($colors, secondary);
+  //       font-size: 12px;
+  //     }
+  //   }
+  //   .cashback {
+  //     background-color: map-get($colors, secondarylight);
+  //     padding: 4px;
+  //     border-radius: 4px;
+  //     align-self: start;
+  //     margin: 0 4px;
+  //   }
+  // }
+
+  // @for $i from 1 through 16 {
+  //   .col:nth-child(#{$i}n) {
+  //     animation-delay: #{$i * 0.05}s;
+  //   }
+  // }
+
+  .button_wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 6px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      object-fit: contain;
+      height: 160px;
+    }
+    h4 {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 0;
+      text-transform: capitalize;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0 4px;
+      text-align: left;
+    }
+    .price_area {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin: 16px 0;
+      padding: 0 4px;
+      h3 {
+        margin: 0;
+        font-weight: normal;
+        font-size: 16px;
+      }
+      h6 {
+        color: #797979;
+        text-decoration: line-through;
+        font-weight: normal;
+        font-size: 14px;
+        margin: 0 8px;
+      }
+      small {
+        color: map-get($colors, secondary);
+        font-size: 12px;
+      }
+    }
+    .cashback {
+      background-color: map-get($colors, secondarylight);
+      padding: 4px;
+      border-radius: 4px;
+      align-self: start;
+      margin: 0 4px;
+    }
+  }
+
+  @for $i from 1 through 16 {
+    .col:nth-child(#{$i}n) {
+      animation-delay: #{$i * 0.05}s;
+    }
+  }
+
+  .no-product{
+    text-align: center;
+    img{
+      width: 30%;
+      margin-top: 50%;
+    }
+    p{
+      font-weight: 400;
+      font-size: 15px;
+    }
+  }
+}

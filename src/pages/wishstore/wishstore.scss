@@ -1,0 +1,31 @@
+page-wishstore {
+  .wish-form {
+    background: #fff;
+    padding: 20px 20px 15px;
+    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    margin-top: 4px;
+    ion-item {
+      padding-left: 0;
+      background: transparent;
+      margin-bottom: 8px;
+      font-size: 15px;
+      .item-inner {
+        padding-left: 0!important;
+      }
+    }
+    h5 {
+      margin: 16px 0 16px 8px;
+      font-size: 1.9rem;
+    }
+    .btn-transparent {
+      background: transparent;
+      color: #0ec0ed;
+      padding: 0;
+      box-shadow: none;
+      ion-icon {
+        margin-right: 6px;
+      }
+    }
+  }
+}

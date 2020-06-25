@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Classified Product List</ion-title>
+  </ion-navbar>
+  <ion-input class="srch-area" type="text" id="ownLocation" [(ngModel)]="own_location.address" placeholder="Search here.." ></ion-input>
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="alldata">
+  <div class="donate-list" *ngFor="let detail of field_data">
+    <!-- <ion-icon *ngIf="detail.api_token" (tap)="chat2(detail)" name="chatbubbles" style="float: right;color:green;font-size:30px;margin-right:12px;"></ion-icon> -->
+    <ion-row>
+        <ion-col col-3 (tap)="details(detail)"  *ngIf="detail.image">
+          <img [src]="detail.image" style="height: 100px;">
+        </ion-col>
+        <ion-col col-7 (tap)="details(detail)" >
+          <p><b>Category Name:</b> {{detail.category_names[1]}}</p>
+          <p><b>{{detail.label}}:</b> {{detail.value}}</p>
+          <p><b>{{detail.gender}}:</b> {{detail.gender_value}}</p>
+          <p><b>{{detail.lang}}:</b> {{detail.lang_value}}</p>
+          <p><b>{{detail.exp}}:</b> {{detail.exp_value}}</p>
+          <p><b>{{detail.date}}:</b> {{detail.date_value}}</p>
+          <p><b>{{detail.about}}:</b> {{detail.about_value}}</p>
+        </ion-col>
+      <ion-col col-2>
+        <!-- <button ion-button="" icon-only="" small (click)="deleteItem(item.id)" outline mode="ios" color="danger">
+          <ion-icon name="trash"></ion-icon>
+        </button> -->
+      </ion-col>
+    </ion-row>
+  </div>
+</div>
+<div *ngIf="nodata">
+  <div class="donate-list" style="margin-top: 36px;padding: 12px 7px;">
+    <p style="font-weight: bold;text-align: center;font-size:16px">No products available!!</p>
+  </div>
+</div>
+  <!-- <ion-infinite-scroll (ionInfinite)="moreProducts($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles"></ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
+</ion-content>

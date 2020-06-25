@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Bidding Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="product_imgs animated fadeInUp">
+
+    <p class="current_index" *ngIf="product_images">
+      {{slidenumber}} / {{product_images.length}}
+    </p>
+
+    <ion-slides (ionSlideDidChange)="slideChanged()">
+      <ion-slide pager *ngFor="let item of product_images;">
+        <img [src]="item.imageurl.original">
+      </ion-slide>
+
+    </ion-slides>
+
+  </div>
+
+  <div class="bidding_details animated fadeInUp" *ngIf="product_detail">
+    <h4>{{product_detail.product_title}}</h4>
+    <span class="status active">{{product_detail.status}}</span>
+    <ul>
+      <!-- <li>
+        <p>item</p>
+        <h6>165378TX85</h6>
+      </li> -->
+      <li>
+        <p>max bid</p>
+        <h6 style="color: #0ec0ed;" *ngIf="product_detail.current_bid_price!=null">${{product_detail.current_bid_price}}</h6>
+        <h6 style="color: #0ec0ed;" *ngIf="product_detail.current_bid_price==null">0</h6>
+      </li>
+      <li>
+        <p>ends</p>
+        <h6>{{product_detail.biding_end}}</h6>
+      </li>
+      <li>
+        <p>bids</p>
+        <h6>{{product_detail.bid_count}}</h6>
+      </li>
+    </ul>
+    <ion-list>
+        <ion-item>
+            <h3>Bid Increment Percent<span>{{product_detail.bid_increment_percent}}</span></h3>
+          </ion-item>
+      <ion-item>
+        <h3>Product Condition<span>{{product_detail.product_condition}}</span></h3>
+      </ion-item>
+      <ion-item>
+        <h3>Shipping Charge<span>{{product_detail.shipping_charge}}</span></h3>
+      </ion-item>
+      <ion-item>
+        <h3>Stock<span>{{product_detail.stock}}</span></h3>
+      </ion-item>
+    </ion-list>
+
+    <button ion-button color="primary" full class="animated fadeInLeft" style="animation-delay: 0.6s" *ngIf="product_detail.status=='Active'" (click)="doBid()">Bid</button>
+  </div>
+</ion-content>
