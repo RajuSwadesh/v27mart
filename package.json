@@ -57,7 +57,7 @@
     "cordova-plugin-file-transfer": "1.7.1",
     "cordova-plugin-geolocation": "4.0.2",
     "cordova-plugin-googleplus": "^8.4.0",
-    "cordova-plugin-inappbrowser": "2.0.2",
+    "cordova-plugin-inappbrowser": "3.1.0",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.1.2",
     "cordova-plugin-market": "^1.2.0",
